@@ -108,7 +108,7 @@ describe('media components', () => {
 
       expect(wrapper.find('video').exists()).toBe(true);
       expect(wrapper.get('[data-test-id="result-info"]').text()).toContain('out.mp4');
-      expect(wrapper.get('[data-test-id="result-info"]').text()).toContain('-75% vs. original');
+      expect(wrapper.get('[data-test-id="result-info"]').text()).toBe('out.mp4 · 250 Bytes · -75% vs. original');
     });
 
     it('shows the error', () => {

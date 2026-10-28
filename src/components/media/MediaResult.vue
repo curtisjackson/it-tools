@@ -20,11 +20,16 @@ const { t } = useI18n();
 
 const url = useObjectUrl(toRef(props, 'result'));
 const kind = computed(() => props.result?.type.split('/')[0]);
-const sizeChange = computed(() => {
-  if (!props.result || !props.sourceSize) {
-    return undefined;
+const info = computed(() => {
+  if (!props.result) {
+    return '';
   }
-  return Math.round(((props.result.size - props.sourceSize) / props.sourceSize) * 100);
+  const parts = [props.result.name, formatBytes(props.result.size)];
+  if (props.sourceSize) {
+    const change = Math.round(((props.result.size - props.sourceSize) / props.sourceSize) * 100);
+    parts.push(t('shared.media.size-change', [`${change > 0 ? '+' : ''}${change}%`]));
+  }
+  return parts.join(' · ');
 });
 </script>
 
@@ -45,12 +50,7 @@ const sizeChange = computed(() => {
       <img v-else-if="kind === 'image'" :src="url" alt="" mx-auto block max-h-360px max-w-full />
 
       <div mt-2 flex flex-wrap items-center justify-between gap-2>
-        <div text-sm op-70 data-test-id="result-info">
-          {{ result.name }} · {{ formatBytes(result.size) }}
-          <template v-if="sourceSize">
-            ({{ t('shared.media.size-change', [`${sizeChange! > 0 ? '+' : ''}${sizeChange}%`]) }})
-          </template>
-        </div>
+        <div text-sm op-70 data-test-id="result-info">{{ info }}</div>
         <c-button @click="downloadFile(result)">{{ t('shared.media.download') }}</c-button>
       </div>
     </c-card>

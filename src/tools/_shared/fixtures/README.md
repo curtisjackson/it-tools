@@ -9,8 +9,8 @@ ffmpeg -y -f lavfi -i "sine=frequency=660:duration=3" -c:a libmp3lame -b:a 32k s
 ffmpeg -y -f lavfi -i "testsrc2=size=64x48" -frames:v 1 sample.png
 ```
 
-| File | Content |
-| --- | --- |
+| File         | Content                                       |
+| ------------ | --------------------------------------------- |
 | `sample.mp4` | 3 s, 320×240, 25 fps, H.264 + AAC 440 Hz tone |
-| `sample.mp3` | 3 s, 660 Hz tone, MP3 |
-| `sample.png` | 64×48 test pattern |
+| `sample.mp3` | 3 s, 660 Hz tone, MP3                         |
+| `sample.png` | 64×48 test pattern                            |
