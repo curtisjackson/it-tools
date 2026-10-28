@@ -16,3 +16,13 @@ shared:
     comment-character: Символ комментария
     delete-comment: Пропускать комментарии
     delete-empty-lines: Пропускать пустые строки
+  bytes-input:
+    label: Ввод
+    format-utf8: Текст (UTF-8)
+    format-latin1: Текст (Latin-1)
+    format-hex: Hex
+    format-base64: Base64
+    format-file: Файл
+    placeholder: Введите данные...
+    file-title: Перетащите файл сюда или нажмите, чтобы выбрать
+    invalid: 'Неверный ввод: {0}'
