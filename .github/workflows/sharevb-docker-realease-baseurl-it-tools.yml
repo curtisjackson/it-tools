@@ -16,7 +16,7 @@ on:
     workflows: [ci]
     types: [completed]
     branches:
-      - chore/all-my-stuffs
+      - main
 
 concurrency:
   # One publish at a time, newest wins: without this, an older run that finishes

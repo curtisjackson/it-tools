@@ -19,7 +19,7 @@
 
 ### Before submitting the PR, please make sure you do the following
 
-- [ ] Submit the PR against the `chore/all-my-stuffs` branch.
+- [ ] Submit the PR against the `main` branch.
 - [ ] Check that there isn't already a PR that solves the problem the same way to avoid creating a duplicate.
 - [ ] Provide a description, in PLAIN ENGLISH ONLY, in this PR that addresses **what** the PR is solving, or reference the issue that it solves (e.g. `fixes #123`).
 - [ ] Run `pnpm install --ignore-scripts && pnpm lint:fix && pnpm typecheck` to ensure pnpm lock, oxlint (including type-aware rules) and vue-tsc are ok

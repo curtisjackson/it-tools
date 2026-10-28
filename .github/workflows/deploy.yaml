@@ -4,7 +4,7 @@ name: Deploy
 # Builds here and deploys the result to Vercel. The Git integration is off for this project
 # (`git.deploymentEnabled: false` in vercel.json), so this workflow is what deploys it.
 #
-# chore/all-my-stuffs goes to production. Every pull request gets a preview, linked from the
+# main goes to production. Every pull request gets a preview, linked from the
 # PR's "View deployment" button through the GitHub environment set on the job.
 #
 # Setup: VERCEL_TOKEN, VERCEL_ORG_ID and VERCEL_PROJECT_ID as secrets, on the repository or on
@@ -21,7 +21,7 @@ permissions:
 on:
   push:
     branches:
-      - chore/all-my-stuffs
+      - main
   pull_request:
   workflow_dispatch:
 
@@ -52,7 +52,7 @@ jobs:
     # step runs. `url` is evaluated at the end, so it can use the deploy step's output.
     environment:
       name: >-
-        ${{ github.ref == 'refs/heads/chore/all-my-stuffs' && github.event_name != 'pull_request'
+        ${{ github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         && 'Production' || 'Preview' }}
       url: ${{ steps.deploy.outputs.url }}
     permissions:
@@ -140,7 +140,7 @@ jobs:
           PRODUCTION_URL: ${{ vars.VERCEL_PRODUCTION_URL }}
         run: |
           set -euo pipefail
-          if [ "$REF" = "refs/heads/chore/all-my-stuffs" ] && [ "$EVENT" != "pull_request" ]; then
+          if [ "$REF" = "refs/heads/main" ] && [ "$EVENT" != "pull_request" ]; then
             {
               echo "environment=production"
               echo "prod_flag=--prod"
