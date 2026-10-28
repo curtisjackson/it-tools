@@ -1,8 +1,15 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { createToken } from './token-generator.service';
 
 describe('token-generator', () => {
   describe('createToken', () => {
+    it('should not use Math.random', () => {
+      const spy = vi.spyOn(Math, 'random');
+      createToken({ length: 64 });
+      expect(spy).not.toHaveBeenCalled();
+      spy.mockRestore();
+    });
+
     it('should generate an empty string when all params are false', () => {
       const token = createToken({
         withLowercase: false,
@@ -69,6 +76,20 @@ describe('token-generator', () => {
       expect(token).toMatch(/^[0-9]+$/);
     });
 
+    it('should generate a random string with just hexa numbers if only withHexaNumbers is set', () => {
+      const token = createToken({
+        withLowercase: false,
+        withUppercase: false,
+        withNumbers: false,
+        withHexaNumbers: true,
+        withSymbols: false,
+        length: 256,
+      });
+
+      expect(token).toHaveLength(256);
+      expect(token).toMatch(/^[0-9a-f]+$/);
+    });
+
     it('should generate a random string with just symbols if only withSymbols is set', () => {
       const token = createToken({
         withLowercase: false,
@@ -79,7 +100,7 @@ describe('token-generator', () => {
       });
 
       expect(token).toHaveLength(256);
-      expect(token).toMatch(/^[.,;:!?./\-"'#{([-|\\@)\]=}*+]+$/);
+      expect(token).toMatch(/^[.,;:!?./\-"'#{([|\\@)\]=}*+]+$/);
     });
 
     it('should generate a random string with just letters (case incensitive) with withLowercase and withUppercase', () => {
@@ -93,6 +114,20 @@ describe('token-generator', () => {
 
       expect(token).toHaveLength(256);
       expect(token).toMatch(/^[a-zA-Z]+$/);
+    });
+
+    it('should generate a random string with just numbers except 1 and 2 if only withNumbers is set and deniedChars contains 1 and 2', () => {
+      const token = createToken({
+        withLowercase: false,
+        withUppercase: false,
+        withNumbers: true,
+        withSymbols: false,
+        length: 256,
+        deniedChars: '12',
+      });
+
+      expect(token).toHaveLength(256);
+      expect(token).toMatch(/^[03456789]+$/);
     });
   });
 });
