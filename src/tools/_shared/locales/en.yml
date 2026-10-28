@@ -28,3 +28,23 @@ shared:
     placeholder: Your input...
     file-title: Drag and drop a file here, or click to select a file
     invalid: 'Invalid input: {0}'
+  media:
+    drop-video: Drag and drop a video here, or click to select one
+    drop-audio: Drag and drop an audio file here, or click to select one
+    drop-image: Drag and drop an image here, or click to select one
+    drop-files: Drag and drop files here, or click to select some
+    change-file: Choose another file
+    files-order: Files order
+    remove: Remove
+    move-up: Move up
+    move-down: Move down
+    start: Start
+    end: End
+    invalid-time: 'Use SS, MM:SS or HH:MM:SS'
+    time-out-of-range: Start must be before end, within the media duration
+    selected-duration: 'Selected: {0}'
+    cancel: Cancel
+    result: Result
+    size-change: '{0} vs. original'
+    download: Download
+    logs: Logs
