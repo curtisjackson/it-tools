@@ -33,6 +33,7 @@ shared:
     drop-audio: Drag and drop an audio file here, or click to select one
     drop-image: Drag and drop an image here, or click to select one
     drop-files: Drag and drop files here, or click to select some
+    preview-unsupported: This browser cannot play this file, so there is no preview. The tool can still process it.
     change-file: Choose another file
     files-order: Files order
     remove: Remove

@@ -8,6 +8,14 @@ import MediaResult from './MediaResult.vue';
 import MediaFileInput from './MediaFileInput.vue';
 import { i18nPlugin } from '@/plugins/i18n.plugin';
 
+vi.mock('@/composable/media/probe-media', () => ({
+  probeWithFfmpeg: vi.fn<() => Promise<{ duration: number; width: number; height: number }>>(async () => ({
+    duration: 3,
+    width: 320,
+    height: 240,
+  })),
+}));
+
 const global = { plugins: [i18nPlugin] };
 
 describe('media components', () => {
@@ -132,6 +140,21 @@ describe('media components', () => {
       });
       await wrapper.get('video').trigger('loadedmetadata');
 
+      expect(wrapper.emitted('loaded')?.at(-1)).toEqual([{ duration: 3, width: 320, height: 240 }]);
+      expect(wrapper.get('[data-test-id="media-info"]').text()).toBe('clip.mp4 · 2 KB · 00:03.000 · 320×240');
+    });
+
+    it('falls back to ffmpeg when the browser cannot open the file', async () => {
+      const wrapper = mount(MediaFileInput, {
+        props: { kind: 'video', file: new File([new Uint8Array(2048)], 'clip.mp4', { type: 'video/mp4' }) },
+        global,
+      });
+
+      await wrapper.get('video').trigger('error');
+      await new Promise((resolve) => setTimeout(resolve, 0));
+
+      expect(wrapper.find('video').exists()).toBe(false);
+      expect(wrapper.get('[data-test-id="preview-unsupported"]').text()).toContain('cannot play this file');
       expect(wrapper.emitted('loaded')?.at(-1)).toEqual([{ duration: 3, width: 320, height: 240 }]);
       expect(wrapper.get('[data-test-id="media-info"]').text()).toBe('clip.mp4 · 2 KB · 00:03.000 · 320×240');
     });

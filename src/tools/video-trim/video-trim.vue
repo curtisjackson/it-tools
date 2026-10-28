@@ -3,7 +3,7 @@ import { useI18n } from 'vue-i18n';
 import { type TrimMode, buildTrimArgs, getTrimOutput } from './video-trim.service';
 import { useFfmpeg } from '@/composable/media/useFfmpeg';
 import { useQueryParamOrStorage } from '@/composable/queryParams';
-import type { MediaMetadata } from '@/components/media/MediaFileInput.vue';
+import type { MediaMetadata } from '@/composable/media/probe-media';
 import MediaFileInput from '@/components/media/MediaFileInput.vue';
 
 const { t } = useI18n();
