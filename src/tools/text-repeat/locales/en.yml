@@ -1,0 +1,9 @@
+tools:
+  text-repeat:
+    title: 'Text repeater'
+    description: 'Repeat a text a given number of times, with an optional delimiter.'
+    texts:
+      label-count: 'Repetitions'
+      label-delimiter: 'Delimiter'
+      placeholder-delimiter: "e.g. , or \\n"
+      placeholder-input: 'Text to repeat...'

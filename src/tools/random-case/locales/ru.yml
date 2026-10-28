@@ -1,0 +1,10 @@
+tools:
+  random-case:
+    title: 'Случайный регистр'
+    description: 'Превращает текст в сЛуЧаЙнЫй или чЕрЕдУюЩиЙсЯ регистр.'
+    texts:
+      label-mode: 'Режим'
+      mode-random: 'Случайный'
+      mode-alternate: 'Чередование'
+      button-again: 'Ещё раз'
+      placeholder-input: 'Текст для преобразования...'

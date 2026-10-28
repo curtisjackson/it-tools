@@ -1,0 +1,10 @@
+tools:
+  random-case:
+    title: 'Random case'
+    description: 'Turn text into rAnDoM or aLtErNaTiNg case.'
+    texts:
+      label-mode: 'Mode'
+      mode-random: 'Random'
+      mode-alternate: 'Alternating'
+      button-again: 'Shuffle again'
+      placeholder-input: 'Text to transform...'
