@@ -2,3 +2,17 @@ tools:
   categories:
     video: Видео
     audio: Аудио
+shared:
+  split-separator:
+    label: Разделять по
+    symbol: Символу
+    regex: Regex
+    symbol-label: Разделитель
+    regex-label: Regex
+    invalid-regex: Неверное регулярное выражение
+  csv:
+    delimiter: Разделитель
+    quote-char: Символ кавычек
+    comment-character: Символ комментария
+    delete-comment: Пропускать комментарии
+    delete-empty-lines: Пропускать пустые строки

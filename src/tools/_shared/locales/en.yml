@@ -4,3 +4,17 @@ tools:
   categories:
     video: Video
     audio: Audio
+shared:
+  split-separator:
+    label: Split by
+    symbol: Symbol
+    regex: Regex
+    symbol-label: Separator
+    regex-label: Regex
+    invalid-regex: Invalid regular expression
+  csv:
+    delimiter: Delimiter
+    quote-char: Quote character
+    comment-character: Comment character
+    delete-comment: Skip comment lines
+    delete-empty-lines: Skip empty lines
