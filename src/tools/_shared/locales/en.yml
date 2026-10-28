@@ -1,0 +1,6 @@
+# Messages shared by the tools of this fork. There is no index.ts here, so this folder is not a tool:
+# src/plugins/i18n.plugin.ts merges these files like any tool-level locale file.
+tools:
+  categories:
+    video: Video
+    audio: Audio
