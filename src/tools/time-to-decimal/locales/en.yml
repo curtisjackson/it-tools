@@ -1,0 +1,8 @@
+tools:
+  time-to-decimal:
+    title: 'Time to decimal hours'
+    description: 'Convert HH:MM(:SS) times to decimal hours, e.g. for timesheets.'
+    texts:
+      label-decimal-places: 'Decimal places'
+      invalid: 'use HH:MM or HH:MM:SS'
+      placeholder-input: 'One time per line...'

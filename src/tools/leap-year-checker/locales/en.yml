@@ -1,0 +1,10 @@
+tools:
+  leap-year-checker:
+    title: 'Leap year checker'
+    description: 'Check whether years are leap years, one per line or as ranges.'
+    texts:
+      hint: 'One year per line, or a range such as 2020-2030.'
+      leap: 'leap year'
+      not-leap: 'not a leap year'
+      invalid: 'not a year'
+      placeholder-input: 'Years...'

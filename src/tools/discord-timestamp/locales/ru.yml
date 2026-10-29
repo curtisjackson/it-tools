@@ -1,0 +1,19 @@
+tools:
+  discord-timestamp:
+    title: 'Метки времени Discord'
+    description: 'Создаёт метки времени Discord, которые показывают дату в часовом поясе читателя.'
+    texts:
+      label-date: 'Дата и время'
+      button-now: 'Сейчас'
+      button-copy: 'Копировать'
+      hint: 'Вставьте код в сообщение Discord: каждый увидит дату в своём часовом поясе и на своём языке.'
+      header-format: 'Формат'
+      header-preview: 'Как выглядит'
+      header-code: 'Код'
+      format-t: 'Короткое время'
+      format-T: 'Полное время'
+      format-d: 'Короткая дата'
+      format-D: 'Полная дата'
+      format-f: 'Дата и время'
+      format-F: 'День недели, дата и время'
+      format-R: 'Относительно'
