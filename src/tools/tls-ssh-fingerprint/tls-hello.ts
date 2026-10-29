@@ -129,18 +129,32 @@ export function serverName(hello: TlsHello): string | undefined {
   return stream.readInt(1) === 0 ? stream.readString(stream.readInt(2)) : undefined;
 }
 
-export function alpnProtocols(hello: TlsHello): string[] {
+function alpnValues(hello: TlsHello): Uint8Array[] {
   const data = extension(hello, TLS_EXTENSION.ALPN);
   if (!data) {
     return [];
   }
   const stream = new ByteStream(data);
   const list = new ByteStream(stream.getBytes(stream.readInt(2)));
-  const protocols: string[] = [];
+  const values: Uint8Array[] = [];
   while (list.hasMore()) {
-    protocols.push(String.fromCharCode(...list.getBytes(list.readInt(1))));
+    values.push(list.getBytes(list.readInt(1)));
   }
-  return protocols;
+  return values;
+}
+
+export function alpnProtocols(hello: TlsHello): string[] {
+  return alpnValues(hello).map((value) => String.fromCharCode(...value));
+}
+
+/** The raw bytes of the first ALPN protocol: offered first by a client, chosen by a server. */
+export function firstAlpn(hello: TlsHello): Uint8Array | undefined {
+  return alpnValues(hello)[0];
+}
+
+/** The signature algorithms of a ClientHello, in their order. */
+export function signatureAlgorithms(hello: TlsHello): number[] {
+  return extensionList(hello, TLS_EXTENSION.SIGNATURE_ALGORITHMS, 2, 2);
 }
 
 /** The versions of the supported_versions extension: offered by a client, chosen by a server. */

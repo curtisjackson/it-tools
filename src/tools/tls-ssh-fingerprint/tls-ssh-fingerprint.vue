@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
 import { type SshSide, fingerprint } from './tls-ssh-fingerprint.service';
-import { JA3_VECTORS } from './tls-ssh-fingerprint.vectors';
+import { JA4_VECTORS } from './tls-ssh-fingerprint.vectors';
 import type { BytesInputFormat } from '@/components/BytesInput.vue';
 import { useQueryParamOrStorage } from '@/composable/queryParams';
 
@@ -18,7 +18,7 @@ const sshSideOptions = computed(() => [
 ]);
 
 // A TLS 1.3 ClientHello from the CyberChef tests.
-const text = ref(JA3_VECTORS[3][1]);
+const text = ref(JA4_VECTORS[0][1]);
 const format = ref<BytesInputFormat>('hex');
 const bytes = ref<Uint8Array>();
 

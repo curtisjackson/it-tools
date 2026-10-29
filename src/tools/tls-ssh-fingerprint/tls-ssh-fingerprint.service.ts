@@ -1,5 +1,6 @@
 import { type SshKexInit, hassh, looksLikeSsh, parseSshKexInit } from './hassh';
 import { type Fingerprint, ja3, ja3s } from './ja3';
+import { ja4, ja4s } from './ja4';
 import { type TlsHello, alpnProtocols, isGrease, parseTlsHello, serverName, supportedVersions } from './tls-hello';
 
 export type SshSide = 'client' | 'server';
@@ -50,13 +51,22 @@ const extensionName = (type: number) =>
   isGrease(type) ? `GREASE (${hex4(type)})` : `${extensionNames[type] ?? 'unknown'} (${type})`;
 
 function tlsReport(hello: TlsHello): FingerprintReport {
-  const fingerprints: NamedFingerprint[] =
-    hello.kind === 'client'
-      ? [
-          { name: 'JA3', ...ja3(hello) },
-          { name: 'JA3N', ...ja3(hello, { sorted: true }) },
-        ]
-      : [{ name: 'JA3S', ...ja3s(hello) }];
+  let fingerprints: NamedFingerprint[];
+  if (hello.kind === 'client') {
+    const client = ja4(hello);
+    fingerprints = [
+      { name: 'JA4', hash: client.ja4, text: client.raw },
+      { name: 'JA4_o', hash: client.original, text: client.rawOriginal },
+      { name: 'JA3', ...ja3(hello) },
+      { name: 'JA3N', ...ja3(hello, { sorted: true }) },
+    ];
+  } else {
+    const server = ja4s(hello);
+    fingerprints = [
+      { name: 'JA4S', hash: server.ja4s, text: server.raw },
+      { name: 'JA3S', ...ja3s(hello) },
+    ];
+  }
   const versions = supportedVersions(hello).filter((version) => !isGrease(version));
   const details: [string, string][] = [
     ['version', versionName(hello.version)],

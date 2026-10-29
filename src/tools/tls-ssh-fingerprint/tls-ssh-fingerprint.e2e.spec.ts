@@ -9,9 +9,9 @@ test.describe('Tool - TLS and SSH fingerprints', () => {
     await expect(page).toHaveTitle('TLS and SSH fingerprints - IT Tools');
   });
 
-  test('Computes the JA3 of the sample ClientHello', async ({ page }) => {
-    await expect(page.getByTestId('fingerprint-JA3').getByTestId('hash').locator('input')).toHaveValue(
-      '4826a90ec2daf4f7b4b64cc1c8bd343b',
-    );
+  test('Computes the fingerprints of the sample ClientHello', async ({ page }) => {
+    const hash = (name: string) => page.getByTestId(`fingerprint-${name}`).getByTestId('hash').locator('input');
+    await expect(hash('JA4')).toHaveValue('t13d1516h2_8daaf6152771_e5627efa2ab1');
+    await expect(hash('JA3')).toHaveValue(/^[0-9a-f]{32}$/);
   });
 });

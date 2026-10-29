@@ -1,13 +1,13 @@
 tools:
   tls-ssh-fingerprint:
     title: 'TLS and SSH fingerprints'
-    description: 'Compute the JA3, JA3N and JA3S fingerprints of a TLS hello and the HASSH of an SSH key exchange.'
+    description: 'Compute the JA4, JA4S, JA3, JA3N and JA3S fingerprints of a TLS hello and the HASSH of an SSH key exchange.'
     texts:
       label-input: 'TLS hello or SSH KEXINIT'
       label-ssh-side: 'SSH packet sent by'
       ssh-client: 'Client (HASSH)'
       ssh-server: 'Server (HASSHServer)'
-      hint: 'Paste a TCP payload, e.g. copied as hex from Wireshark: a ClientHello or ServerHello, with or without its TLS record header, or an SSH KEXINIT packet, with or without the banner line. The type of message is recognised.'
+      hint: 'Paste a TCP payload, e.g. copied as hex from Wireshark: a ClientHello or ServerHello, with or without its TLS record header, or an SSH KEXINIT packet, with or without the banner line. The type of message is recognised. Under each hash is the string it is computed from; JA4_o keeps the original order of the cipher suites and extensions.'
       title-details: 'Details'
       detail-version: 'Version'
       detail-supported-versions: 'Supported versions'
