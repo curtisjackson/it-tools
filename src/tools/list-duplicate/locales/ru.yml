@@ -1,0 +1,11 @@
+tools:
+  list-duplicate:
+    title: 'Повтор списка'
+    description: 'Повторяет элементы списка — целыми копиями или поэлементно.'
+    texts:
+      label-join-separator: 'Соединять через'
+      label-copies: 'Копий'
+      label-concatenate: 'Копировать список целиком'
+      label-reverse: 'Копии в обратном порядке'
+      hint: 'Дробная часть повторяет начало списка: 2,5 копии a b c d — это a b c d a b c d a b.'
+      placeholder-input: 'Элементы списка...'

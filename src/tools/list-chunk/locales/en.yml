@@ -1,0 +1,14 @@
+tools:
+  list-chunk:
+    title: 'List chunker'
+    description: 'Split a list into groups of N items.'
+    texts:
+      label-size: 'Items per group'
+      label-item-separator: 'Item separator'
+      label-chunk-separator: 'Group separator'
+      label-left-wrap: 'Group prefix'
+      label-right-wrap: 'Group suffix'
+      label-skip-empty: 'Skip empty items'
+      label-pad: 'Pad the last group'
+      label-pad-with: 'Pad with'
+      placeholder-input: 'List items...'

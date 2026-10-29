@@ -1,0 +1,11 @@
+tools:
+  list-duplicate:
+    title: 'List duplicator'
+    description: 'Repeat the items of a list, as whole copies or item by item.'
+    texts:
+      label-join-separator: 'Join with'
+      label-copies: 'Copies'
+      label-concatenate: 'Whole list copies'
+      label-reverse: 'Copies in reverse'
+      hint: 'Fractions repeat the start of the list: 2.5 copies of a b c d give a b c d a b c d a b.'
+      placeholder-input: 'List items...'

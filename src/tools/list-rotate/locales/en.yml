@@ -1,0 +1,11 @@
+tools:
+  list-rotate:
+    title: 'List rotator'
+    description: 'Shift the items of a list circularly by N positions.'
+    texts:
+      label-join-separator: 'Join with'
+      label-direction: 'Direction'
+      direction-left: 'Left'
+      direction-right: 'Right'
+      label-step: 'Step'
+      placeholder-input: 'List items...'

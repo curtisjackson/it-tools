@@ -1,0 +1,11 @@
+tools:
+  list-rotate:
+    title: 'Сдвиг списка'
+    description: 'Циклически сдвигает элементы списка на N позиций.'
+    texts:
+      label-join-separator: 'Соединять через'
+      label-direction: 'Направление'
+      direction-left: 'Влево'
+      direction-right: 'Вправо'
+      label-step: 'Шаг'
+      placeholder-input: 'Элементы списка...'
