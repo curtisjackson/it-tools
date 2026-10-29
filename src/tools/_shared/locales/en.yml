@@ -1,0 +1,51 @@
+# Messages shared by the tools of this fork. There is no index.ts here, so this folder is not a tool:
+# src/plugins/i18n.plugin.ts merges these files like any tool-level locale file.
+tools:
+  categories:
+    video: Video
+    audio: Audio
+shared:
+  split-separator:
+    label: Split by
+    symbol: Symbol
+    regex: Regex
+    symbol-label: Separator
+    regex-label: Regex
+    invalid-regex: Invalid regular expression
+  csv:
+    delimiter: Delimiter
+    quote-char: Quote character
+    comment-character: Comment character
+    delete-comment: Skip comment lines
+    delete-empty-lines: Skip empty lines
+  bytes-input:
+    label: Input
+    format-utf8: Text (UTF-8)
+    format-latin1: Text (Latin-1)
+    format-hex: Hex
+    format-base64: Base64
+    format-file: File
+    placeholder: Your input...
+    file-title: Drag and drop a file here, or click to select a file
+    invalid: 'Invalid input: {0}'
+  media:
+    drop-video: Drag and drop a video here, or click to select one
+    drop-audio: Drag and drop an audio file here, or click to select one
+    drop-image: Drag and drop an image here, or click to select one
+    drop-files: Drag and drop files here, or click to select some
+    preview-unsupported: This browser cannot play this file, so there is no preview. The tool can still process it.
+    change-file: Choose another file
+    files-order: Files order
+    remove: Remove
+    move-up: Move up
+    move-down: Move down
+    start: Start
+    end: End
+    invalid-time: 'Use SS, MM:SS or HH:MM:SS'
+    time-out-of-range: Start must be before end, within the media duration
+    selected-duration: 'Selected: {0}'
+    cancel: Cancel
+    result: Result
+    size-change: '{0} vs. original'
+    download: Download
+    logs: Logs

@@ -1,0 +1,11 @@
+tools:
+  video-trim:
+    title: Video trimmer
+    description: Cut a video to a time range, in your browser.
+    texts:
+      label-mode: Mode
+      mode-fast: Fast
+      mode-precise: Frame-accurate
+      mode-fast-hint: Copies the streams without re-encoding. Instant and lossless, but the cut snaps to the nearest keyframe before the start.
+      mode-precise-hint: Re-encodes to MP4 (H.264 + AAC) to cut on the exact frame. Slower, especially for long or HD videos.
+      button-trim: Trim video
