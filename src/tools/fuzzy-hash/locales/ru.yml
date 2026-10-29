@@ -1,0 +1,13 @@
+tools:
+  fuzzy-hash:
+    title: 'Нечёткие хэши (SSDEEP)'
+    description: 'Считает нечёткие хэши SSDEEP и CTPH текста или файла и сравнивает два хэша, чтобы оценить похожесть данных.'
+    texts:
+      title-hash: 'Хэш'
+      label-input: 'Текст или файл'
+      use-as: 'Подставить SSDEEP как хэш {0}'
+      hint-hash: 'SSDEEP совместим с утилитой ssdeep и VirusTotal. CTPH — формат CyberChef (ctph.js), другие инструменты его не читают.'
+      title-compare: 'Сравнение'
+      label-hash: 'Хэш {0}'
+      score: 'Похожесть {0}: {1} из 100'
+      hint-compare: 'Хэши SSDEEP сравниваются как в ssdeep: размеры блоков должны совпадать или отличаться вдвое, а в хэшах должно быть 7 общих символов подряд. 0 — сходства нет.'
