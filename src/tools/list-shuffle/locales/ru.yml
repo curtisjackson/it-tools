@@ -1,0 +1,9 @@
+tools:
+  list-shuffle:
+    title: 'Перемешать список'
+    description: 'Перемешивает элементы списка в случайном порядке.'
+    texts:
+      label-join-separator: 'Соединять через'
+      label-limit: 'Оставить только'
+      button-again: 'Ещё раз'
+      placeholder-input: 'Элементы списка...'

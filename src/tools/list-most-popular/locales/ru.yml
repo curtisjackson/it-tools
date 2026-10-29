@@ -1,0 +1,16 @@
+tools:
+  list-most-popular:
+    title: 'Частые элементы'
+    description: 'Считает, сколько раз встречается каждый элемент списка.'
+    texts:
+      label-sort: 'Сортировка'
+      sort-count: 'По количеству'
+      sort-alphabetic: 'По алфавиту'
+      label-format: 'Показывать'
+      format-count: 'Количество'
+      format-percentage: 'Процент'
+      format-total: 'Из общего числа'
+      label-trim: 'Обрезать пробелы'
+      label-skip-empty: 'Пропускать пустые'
+      label-ignore-case: 'Без учёта регистра'
+      placeholder-input: 'Элементы списка...'

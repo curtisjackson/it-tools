@@ -1,0 +1,11 @@
+tools:
+  list-truncate:
+    title: 'List truncator'
+    description: 'Keep only the first or the last N items of a list.'
+    texts:
+      label-join-separator: 'Join with'
+      label-keep: 'Keep'
+      keep-first: 'First'
+      keep-last: 'Last'
+      label-length: 'Items'
+      placeholder-input: 'List items...'

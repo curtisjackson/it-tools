@@ -1,0 +1,12 @@
+tools:
+  list-unwrap:
+    title: 'Снять обёртку'
+    description: 'Убирает у каждого элемента списка префикс и суффикс, например кавычки.'
+    texts:
+      label-left: 'Префикс'
+      label-right: 'Суффикс'
+      label-join-separator: 'Соединять через'
+      label-multi-level: 'Убирать повторы'
+      label-trim: 'Обрезать пробелы'
+      label-skip-empty: 'Пропускать пустые'
+      placeholder-input: 'Элементы списка...'

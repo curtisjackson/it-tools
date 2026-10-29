@@ -1,0 +1,12 @@
+tools:
+  list-unwrap:
+    title: 'List unwrapper'
+    description: 'Remove a prefix and a suffix, such as quotes, from each item of a list.'
+    texts:
+      label-left: 'Prefix'
+      label-right: 'Suffix'
+      label-join-separator: 'Join with'
+      label-multi-level: 'Remove repeated'
+      label-trim: 'Trim items'
+      label-skip-empty: 'Skip empty items'
+      placeholder-input: 'List items...'
