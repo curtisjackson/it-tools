@@ -1,0 +1,8 @@
+tools:
+  csv-transpose:
+    title: 'CSV transposer'
+    description: 'Turn the rows of a CSV into columns and the columns into rows.'
+    texts:
+      label-fill: 'Fill missing cells'
+      label-fill-with: 'Fill with'
+      placeholder-input: 'CSV data...'

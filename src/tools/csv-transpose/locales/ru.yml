@@ -1,0 +1,8 @@
+tools:
+  csv-transpose:
+    title: 'Транспонирование CSV'
+    description: 'Превращает строки CSV в столбцы, а столбцы — в строки.'
+    texts:
+      label-fill: 'Заполнять пустые ячейки'
+      label-fill-with: 'Чем заполнять'
+      placeholder-input: 'Данные CSV...'
