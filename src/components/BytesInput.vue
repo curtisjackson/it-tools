@@ -26,6 +26,7 @@ const emit = defineEmits<{
   (event: 'update:value', value: string): void;
   (event: 'update:format', format: BytesInputFormat): void;
   (event: 'update:bytes', bytes: Uint8Array | undefined): void;
+  (event: 'update:file', file: File | undefined): void;
 }>();
 
 const { t } = useI18n();
@@ -70,7 +71,10 @@ const validation = useValidation({
 
 watch(
   [format, textBytes, fileBytes],
-  () => emit('update:bytes', format.value === 'file' ? fileBytes.value : textBytes.value),
+  () => {
+    emit('update:bytes', format.value === 'file' ? fileBytes.value : textBytes.value);
+    emit('update:file', format.value === 'file' ? file.value : undefined);
+  },
   { immediate: true },
 );
 </script>

@@ -34,4 +34,11 @@ Copyright (c) 2024 Ibrahima Gaye Coulibaly. Licensed under the MIT License.
 Crown Copyright. Licensed under the Apache License, Version 2.0.
 
 - Tools: `extract-dates`
+- Compression tools: `compression-converter`
 - Shared code: `src/utils/byte-stream.ts` (`Stream`)
+
+## Other ported or vendored code
+
+| Code | Version | License | Where |
+| --- | --- | --- | --- |
+| [LZMA-JS](https://github.com/blu3r4y/LZMA-JS) (`@blu3r4y/lzma`) | 2.3.3 | MIT | `src/libs/lzma` |
