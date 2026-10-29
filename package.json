@@ -299,6 +299,7 @@
     "monaco-editor": "^0.55.1",
     "morsee": "^1.0.10",
     "msgpackr": "^2.0.4",
+    "music-metadata": "^11.16.1",
     "naive-ui": "^2.44.1",
     "nanoid": "^6.0.0",
     "nanoid-dictionary": "^5.0.0",
