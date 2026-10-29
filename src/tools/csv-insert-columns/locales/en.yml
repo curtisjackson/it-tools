@@ -1,0 +1,18 @@
+tools:
+  csv-insert-columns:
+    title: 'CSV column inserter'
+    description: 'Insert columns into a CSV at the start, at the end or after a given column.'
+    texts:
+      label-columns: 'Columns to insert (CSV)'
+      placeholder-columns: "header\nvalue 1\nvalue 2"
+      label-position: 'Insert'
+      position-prepend: 'At the start'
+      position-append: 'At the end'
+      position-header: 'After a header'
+      position-index: 'After N columns'
+      label-header: 'Header'
+      label-index: 'Columns before'
+      label-fill: 'Fill missing cells with'
+      placeholder-fill: 'nothing'
+      title-format: 'CSV format'
+      placeholder-input: 'CSV data...'

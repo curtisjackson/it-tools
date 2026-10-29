@@ -1,0 +1,16 @@
+tools:
+  csv-incomplete-records:
+    title: 'CSV completeness checker'
+    description: 'Find the CSV records with missing columns, empty cells or empty lines.'
+    texts:
+      label-input: 'CSV to check'
+      placeholder-input: 'CSV data...'
+      label-empty-values: 'Report empty cells'
+      title-format: 'CSV format'
+      complete: 'The CSV is complete.'
+      found: 'Incomplete records: {0}'
+      header-line: 'Line'
+      header-problem: 'Problem'
+      issue-empty-line: 'empty line'
+      issue-missing-columns: '{0} missing column(s)'
+      issue-empty-values: 'empty cells in column(s) {0}'

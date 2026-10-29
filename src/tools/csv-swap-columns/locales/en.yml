@@ -1,0 +1,12 @@
+tools:
+  csv-swap-columns:
+    title: 'CSV column swapper'
+    description: 'Swap two columns of a CSV, chosen by position or by header.'
+    texts:
+      label-by: 'Choose by'
+      by-position: 'Position'
+      by-header: 'Header'
+      label-from: 'Column'
+      label-to: 'With column'
+      title-format: 'CSV format'
+      placeholder-input: 'CSV data...'
