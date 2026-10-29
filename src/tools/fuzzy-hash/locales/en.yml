@@ -1,0 +1,13 @@
+tools:
+  fuzzy-hash:
+    title: 'Fuzzy hashes (SSDEEP)'
+    description: 'Compute the SSDEEP and CTPH fuzzy hashes of a text or a file, and compare two hashes to see how similar the data is.'
+    texts:
+      title-hash: 'Hash'
+      label-input: 'Your text or file'
+      use-as: 'Use the SSDEEP hash as hash {0}'
+      hint-hash: 'SSDEEP is compatible with the ssdeep tool and VirusTotal. CTPH is the format of CyberChef (ctph.js), which other tools do not read.'
+      title-compare: 'Compare'
+      label-hash: 'Hash {0}'
+      score: '{0} similarity: {1} / 100'
+      hint-compare: 'SSDEEP hashes are compared as ssdeep does: their block sizes must be equal or differ by a factor of two, and they need a run of 7 common characters. 0 means no similarity.'

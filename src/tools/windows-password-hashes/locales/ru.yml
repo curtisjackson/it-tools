@@ -1,0 +1,12 @@
+tools:
+  windows-password-hashes:
+    title: 'Хэши NT и LM'
+    description: 'Считает хэши NT (NTLM) и LM для пароля Windows.'
+    texts:
+      label-password: 'Пароль'
+      label-nt: 'Хэш NT'
+      label-lm: 'Хэш LM'
+      label-combined: 'LM:NT'
+      lm-truncated: 'LM берёт только первые 14 символов пароля в верхнем регистре.'
+      lm-replaced: 'LM не умеет символы вне Latin-1 — они заменены на «?».'
+      hint: 'Хэш NT — это MD4 от пароля в UTF-16LE. Хэш LM делит пароль в верхнем регистре на два ключа DES по 7 символов; он слабый и с Windows Vista по умолчанию отключён.'

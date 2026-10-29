@@ -1,0 +1,9 @@
+tools:
+  keyed-mac:
+    title: 'CMAC and Ascon-Mac'
+    description: 'Compute the CMAC (AES or Triple DES) or the Ascon-Mac of a message with a secret key.'
+    texts:
+      label-algorithm: 'Algorithm'
+      label-key: 'Key'
+      hint-key: 'Key size in bytes: {0}. A 16 byte Triple DES key is used as K1 K2 K1.'
+      label-message: 'Message'
