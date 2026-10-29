@@ -1,0 +1,15 @@
+tools:
+  legacy-hashes:
+    title: 'Rare hashes'
+    description: 'Compute rare and historical hashes of a text or a file: MD2, MD6, SHA-0, HAS-160, Snefru, SHAKE and MurmurHash3.'
+    texts:
+      label-input: 'Your text or file'
+      label-encoding: 'Digest encoding'
+      title-settings: 'Settings'
+      label-size: 'Size'
+      label-levels: 'Levels'
+      label-key: 'Key'
+      label-rounds: 'Rounds'
+      label-seed: 'Seed'
+      label-signed: 'Signed'
+      hint-bits: 'Output size in bits.'

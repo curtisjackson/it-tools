@@ -1,0 +1,15 @@
+tools:
+  legacy-hashes:
+    title: 'Редкие хэши'
+    description: 'Считает редкие и исторические хэши текста или файла: MD2, MD6, SHA-0, HAS-160, Snefru, SHAKE и MurmurHash3.'
+    texts:
+      label-input: 'Текст или файл'
+      label-encoding: 'Кодировка хэша'
+      title-settings: 'Настройки'
+      label-size: 'Размер'
+      label-levels: 'Уровни'
+      label-key: 'Ключ'
+      label-rounds: 'Раунды'
+      label-seed: 'Начальное значение'
+      label-signed: 'Со знаком'
+      hint-bits: 'Размер результата в битах.'
