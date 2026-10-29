@@ -1,0 +1,15 @@
+tools:
+  php-serialize-converter:
+    title: 'PHP serialize converter'
+    description: 'Convert between the PHP serialize() format and JSON, with UTF-8 strings, objects, enums and big integers.'
+    texts:
+      label-mode: 'Direction'
+      mode-unserialize: 'PHP → JSON'
+      mode-serialize: 'JSON → PHP'
+      label-indent: 'Indentation'
+      indent-none: 'None'
+      hint: 'Objects get a __class key with the class name, serialized objects __class and __serialized, enums an __enum key ("Suit:Hearts") and references a __ref key. INF and NAN become strings.'
+      input-unserialize: 'Your serialized PHP value'
+      output-unserialize: 'JSON'
+      input-serialize: 'Your JSON'
+      output-serialize: 'Serialized PHP value'

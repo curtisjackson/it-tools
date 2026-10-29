@@ -138,6 +138,7 @@
     "big.js": "^7.0.1",
     "braces": "^3.0.3",
     "browser-image-compression": "^2.0.2",
+    "bson": "^7.3.3",
     "bwip-js": "^4.11.2",
     "byte-data": "^19.0.1",
     "change-case": "^5.4.4",

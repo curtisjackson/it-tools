@@ -1,0 +1,15 @@
+tools:
+  php-serialize-converter:
+    title: 'PHP serialize ↔ JSON'
+    description: 'Переводит формат PHP serialize() в JSON и обратно: строки в UTF-8, объекты, перечисления и большие целые.'
+    texts:
+      label-mode: 'Направление'
+      mode-unserialize: 'PHP → JSON'
+      mode-serialize: 'JSON → PHP'
+      label-indent: 'Отступ'
+      indent-none: 'Без отступа'
+      hint: 'У объектов есть ключ __class с именем класса, у сериализованных объектов — __class и __serialized, у перечислений — ключ __enum ("Suit:Hearts"), у ссылок — __ref. INF и NAN становятся строками.'
+      input-unserialize: 'Сериализованное значение PHP'
+      output-unserialize: 'JSON'
+      input-serialize: 'JSON'
+      output-serialize: 'Сериализованное значение PHP'
