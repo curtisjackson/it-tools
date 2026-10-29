@@ -1,0 +1,9 @@
+tools:
+  table-converter:
+    title: 'Table converter'
+    description: 'Convert a table between Markdown, CSV, TSV, HTML, MySQL output and JSON.'
+    texts:
+      label-from: 'From'
+      label-to: 'To'
+      auto: 'Detect'
+      placeholder-input: 'A table in any supported format...'

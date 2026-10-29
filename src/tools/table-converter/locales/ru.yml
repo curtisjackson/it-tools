@@ -1,0 +1,9 @@
+tools:
+  table-converter:
+    title: 'Конвертер таблиц'
+    description: 'Переводит таблицу между Markdown, CSV, TSV, HTML, выводом MySQL и JSON.'
+    texts:
+      label-from: 'Из'
+      label-to: 'В'
+      auto: 'Определить'
+      placeholder-input: 'Таблица в любом из форматов...'
