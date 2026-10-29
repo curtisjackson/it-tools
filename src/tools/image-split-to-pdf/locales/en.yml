@@ -1,0 +1,15 @@
+tools:
+  image-split-to-pdf:
+    title: 'Image splitter to PDF'
+    description: 'Cut a large or long image into printable PDF pages.'
+    texts:
+      drop: 'Drag and drop an image here, or click to select one'
+      label-page: 'Page'
+      label-landscape: 'Landscape'
+      label-margin: 'Margin (mm)'
+      label-scale: 'Scale'
+      scale-fit-width: 'Fit page width'
+      scale-dpi: 'Resolution'
+      label-dpi: 'Pixels per inch'
+      hint: 'Fit page width suits long screenshots; a resolution prints posters at a real size.'
+      button: 'Make PDF'
