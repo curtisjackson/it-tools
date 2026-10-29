@@ -1,0 +1,12 @@
+tools:
+  pdf-to-images:
+    title: 'PDF в картинки'
+    description: 'Сохраняет страницы PDF картинками PNG или JPEG.'
+    texts:
+      drop: 'Перетащите PDF сюда или нажмите, чтобы выбрать'
+      label-format: 'Формат'
+      label-dpi: 'Разрешение'
+      label-quality: 'Качество ({0}%)'
+      label-pages: 'Страницы'
+      placeholder-pages: 'все или, например, 1,3-5'
+      button: 'Конвертировать'
