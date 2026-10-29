@@ -1,0 +1,15 @@
+tools:
+  video-add-audio:
+    title: 'Audio adder'
+    description: 'Add music or a voice-over to a video, replacing or mixing with its sound.'
+    texts:
+      label-mode: 'Original sound'
+      mode-replace: 'Replace'
+      mode-mix: 'Mix'
+      label-volume: 'Added volume ({0}%)'
+      label-original-volume: 'Original volume ({0}%)'
+      label-offset: 'Start at (s)'
+      label-loop: 'Repeat the audio'
+      label-audio: 'Audio to add'
+      drop-audio: 'Drag and drop an audio file here, or click to select one'
+      button: 'Add audio'
