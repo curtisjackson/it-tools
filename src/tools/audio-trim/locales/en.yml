@@ -1,0 +1,7 @@
+tools:
+  audio-trim:
+    title: 'Audio trimmer'
+    description: 'Cut an audio file to a time range, e.g. to make a ringtone.'
+    texts:
+      format-copy: 'Original'
+      button: 'Trim audio'
