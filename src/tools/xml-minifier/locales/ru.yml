@@ -1,0 +1,10 @@
+tools:
+  xml-minifier:
+    title: 'Минификация XML'
+    description: 'Убирает пробелы и переносы между тегами XML-документа и, по желанию, комментарии.'
+    texts:
+      label-preserve-comments: 'Сохранять комментарии'
+      label-self-close: 'Самозакрывать пустые элементы'
+      input-label: 'Ваш XML'
+      output-label: 'Минифицированный XML'
+      message-invalid: 'Неверный XML: {0}'

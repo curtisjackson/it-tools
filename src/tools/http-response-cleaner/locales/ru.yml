@@ -1,0 +1,19 @@
+tools:
+  http-response-cleaner:
+    title: 'Сырой HTTP-ответ'
+    description: 'Достаёт тело из сырого HTTP-ответа: убирает заголовки, склеивает chunked и распаковывает gzip или deflate.'
+    texts:
+      label-dechunk: 'Склеить chunked'
+      dechunk-auto: 'По заголовкам'
+      dechunk-always: 'Всегда'
+      dechunk-never: 'Никогда'
+      label-decompress: 'Распаковать'
+      hint: 'Вставьте ответ, снятый прокси или Wireshark, или загрузите файл — бинарное тело сохраняется байт в байт. Если заголовков нет, chunked и gzip распознаются по самому телу. Brotli не поддерживается.'
+      label-input: 'Сырой ответ'
+      title-headers: 'Заголовки'
+      title-body: 'Тело'
+      step-dechunked: 'Склеено'
+      step-gzip: 'gzip'
+      step-deflate: 'deflate'
+      download: 'Скачать тело'
+      binary: 'Тело бинарное — скачайте его, чтобы открыть.'

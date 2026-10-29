@@ -1,0 +1,14 @@
+tools:
+  ip-grouper:
+    title: 'Группировка IP-адресов'
+    description: 'Группирует список адресов IPv4 и IPv6 по подсетям, сортирует и убирает повторы.'
+    texts:
+      label-ipv4-prefix: 'Префикс IPv4'
+      label-ipv6-prefix: 'Префикс IPv6'
+      label-unique: 'Убрать повторы'
+      label-counts: 'Показывать количество'
+      label-only-subnets: 'Только подсети'
+      label-input: 'Адреса'
+      placeholder-input: 'По адресу в строке или через пробел, запятую'
+      summary: 'Подсетей: {0}'
+      invalid: 'Не адреса: {0}'

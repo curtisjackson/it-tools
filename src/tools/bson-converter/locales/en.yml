@@ -1,0 +1,18 @@
+tools:
+  bson-converter:
+    title: 'BSON converter'
+    description: 'Convert BSON (MongoDB) documents to Extended JSON and back, from hex, Base64 or a .bson file.'
+    texts:
+      label-mode: 'Direction'
+      label-json: 'JSON'
+      json-relaxed: 'Relaxed'
+      json-canonical: 'Canonical'
+      label-indent: 'Indentation'
+      indent-none: 'None'
+      label-output: 'Output'
+      hint: 'Extended JSON keeps the BSON types: ObjectId as $oid, dates as $date and so on. Relaxed JSON is easier to read but writes 64-bit integers as plain numbers, which loses precision past 2^53; canonical JSON keeps every type. Several documents, as in a mongodump file, become a JSON array, and a JSON array becomes several documents.'
+      label-bson: 'BSON'
+      label-json-input: 'Your JSON or Extended JSON'
+      invalid-json: 'Cannot convert: {0}'
+      size: '{0} bytes'
+      download: 'Download .bson'

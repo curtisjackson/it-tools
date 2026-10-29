@@ -33,9 +33,17 @@ Copyright (c) 2024 Ibrahima Gaye Coulibaly. Licensed under the MIT License.
 
 Crown Copyright. Licensed under the Apache License, Version 2.0.
 
-- Tools: `extract-dates`
+- Tools: `extract-dates`, `xml-minifier`, `php-serialize-converter`, `bson-converter`, `netbios-name-converter`,
+  `ip-grouper`, `http-response-cleaner`, `tls-ssh-fingerprint`
 - Hash tools: `hash-inspector`, `windows-password-hashes`, `legacy-hashes`, `keyed-mac`, `fuzzy-hash`
+- Test vectors: `audio-metadata` (the tool itself is built on `music-metadata`)
 - Shared code: `src/utils/byte-stream.ts` (`Stream`), `src/utils/ascon.ts` (Ascon-Mac)
+
+## JA4
+
+The JA4 and JA4S fingerprints of `tls-ssh-fingerprint` follow the specification of
+[FoxIO](https://github.com/FoxIO-LLC/ja4): JA4 is published under the BSD 3-Clause license, JA4S and the rest of JA4+
+under the FoxIO License 1.1.
 
 ## Other ported or vendored code
 
