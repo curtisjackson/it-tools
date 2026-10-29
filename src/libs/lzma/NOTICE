@@ -1,0 +1,11 @@
+LZMA-JS — `src/lzma-algo.mjs` of the npm package @blu3r4y/lzma 2.3.3
+(https://github.com/blu3r4y/LZMA-JS), a fork of LZMA-JS by Nathan Rugg.
+MIT license, see LICENSE in this directory.
+
+Changes:
+- `lzma.mjs` is `src/lzma-algo.mjs` renamed.
+- `compress` and `decompress` always return a `Uint8Array`. The original returns a
+  signed number array from `compress`, and `decompress` returns a string whenever the
+  output looks like UTF-8. That string cannot be turned back into the original bytes
+  (overlong forms and lone surrogates are accepted), so the bytes are returned as is.
+- `lzma.d.mts` holds the types.

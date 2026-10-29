@@ -36,6 +36,7 @@ Crown Copyright. Licensed under the Apache License, Version 2.0.
 - Tools: `extract-dates`, `xml-minifier`, `php-serialize-converter`, `bson-converter`, `netbios-name-converter`,
   `ip-grouper`, `http-response-cleaner`, `tls-ssh-fingerprint`
 - Hash tools: `hash-inspector`, `windows-password-hashes`, `legacy-hashes`, `keyed-mac`, `fuzzy-hash`
+- Compression tools: `compression-converter`, `archive-manager`
 - Test vectors: `audio-metadata` (the tool itself is built on `music-metadata`)
 - Shared code: `src/utils/byte-stream.ts` (`Stream`), `src/utils/ascon.ts` (Ascon-Mac)
 
@@ -54,3 +55,4 @@ under the FoxIO License 1.1.
 | [node-md6](https://github.com/Neo-Desktop/md6) | 0.1.0 | CC0-1.0 | `src/tools/legacy-hashes/md6.ts` |
 | [ssdeep.js](https://github.com/cloudtracer/ssdeep.js) | 0.0.3 | MIT | `src/tools/fuzzy-hash/ssdeep.ts` |
 | [ctph.js](https://github.com/huwenshuo/ctph.js) | 0.0.5 | MIT | `src/tools/fuzzy-hash/ctph.ts` |
+| [LZMA-JS](https://github.com/blu3r4y/LZMA-JS) (`@blu3r4y/lzma`) | 2.3.3 | MIT | `src/libs/lzma` |

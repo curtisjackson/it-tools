@@ -43,4 +43,20 @@ describe('BytesInput', () => {
     expect(wrapper.find('input[type="file"]').exists()).toBe(true);
     expect(wrapper.emitted('update:bytes')?.at(-1)).toEqual([undefined]);
   });
+
+  it('emits the chosen file only in file mode', async () => {
+    const wrapper = mountInput({ value: '', format: 'file' });
+    const file = new File(['Hi'], 'hi.txt');
+    const input = wrapper.find('input[type="file"]');
+    Object.defineProperty(input.element, 'files', { value: [file] });
+    await input.trigger('change');
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    expect(wrapper.emitted('update:file')?.at(-1)).toEqual([file]);
+    expect(wrapper.emitted('update:bytes')?.at(-1)).toEqual([new Uint8Array([0x48, 0x69])]);
+
+    await wrapper.setProps({ format: 'utf8' });
+
+    expect(wrapper.emitted('update:file')?.at(-1)).toEqual([undefined]);
+  });
 });
