@@ -186,7 +186,6 @@ function unsigned(x) {
 // Set random values into Uint8Arry
 // Random generator
 function randomSeed(e) {
-    GostRandom = GostRandom || root.GostRandom;
     var randomSource = GostRandom ? new (GostRandom || root.GostRandom) : rootCrypto;
     if (randomSource.getRandomValues)
         randomSource.getRandomValues(e);

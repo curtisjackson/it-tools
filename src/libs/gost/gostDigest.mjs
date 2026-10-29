@@ -99,7 +99,6 @@ function b64decode(s) {
 
 // Random seed
 function getSeed(length) {
-    GostRandom = GostRandom || root.GostRandom;
     var randomSource = GostRandom ? new (GostRandom || root.GostRandom) : rootCrypto;
     if (randomSource.getRandomValues) {
         var d = new Uint8Array(Math.ceil(length / 8));
