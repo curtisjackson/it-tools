@@ -1,0 +1,12 @@
+# Files of sharevb/it-tools that this fork deleted. scripts/fork/sync-upstream.sh keeps them deleted
+# when upstream changes them, instead of stopping on a modify/delete conflict.
+# Docker, GitHub Pages and release workflows publish to sharevb's accounts (commit 1771dc20).
+.github/workflows/sharevb-docker-nightly-release.yml
+.github/workflows/sharevb-docker-realease-baseurl-it-tools.yml
+.github/workflows/sharevb-docker-realease-latest.yml
+.github/workflows/sharevb-github-pages-publish.yml
+.github/workflows/sharevb-releases.yml
+scripts/getLatestChangelog.mjs
+# Vercel deploy (commit 9d8c97d2).
+.github/workflows/deploy.yaml
+vercel.json

@@ -1,0 +1,110 @@
+name: Fork upstream sync
+
+# Every Monday, tries to merge sharevb/it-tools into main with scripts/fork/sync-upstream.sh.
+# A clean merge goes to the sync/upstream branch with a pull request; conflicts open an issue
+# instead. See FORK.md.
+on:
+  schedule:
+    - cron: '0 5 * * 1'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+env:
+  BRANCH: sync/upstream
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  sync:
+    runs-on: ubuntu-26.04-arm
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          fetch-depth: 0
+
+      # pnpm is needed to regenerate the lockfile after a conflict, and for the checks below.
+      - name: Setup pnpm and install dependencies
+        uses: pnpm/setup@fbda4c85fc2e1e08721cd8763afea8f48d60f024 # v3.0.0
+        with:
+          cache: true
+
+      - name: Merge upstream
+        id: merge
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git checkout -B "$BRANCH"
+          set +e
+          sh scripts/fork/sync-upstream.sh 2>&1 | tee merge.log
+          status=${PIPESTATUS[0]}
+          set -e
+          case "$status" in
+            0) echo 'result=merged' >> "$GITHUB_OUTPUT" ;;
+            2) echo 'result=up-to-date' >> "$GITHUB_OUTPUT" ;;
+            *) echo 'result=conflicts' >> "$GITHUB_OUTPUT" ;;
+          esac
+
+      # A pull request opened with GITHUB_TOKEN does not start other workflows, so ci does not
+      # run on it by itself: the main checks run here and their results go into its description.
+      - name: Check the merge
+        if: steps.merge.outputs.result == 'merged'
+        run: |
+          pnpm install --frozen-lockfile
+          {
+            echo '| Check | Result |'
+            echo '| --- | --- |'
+            for check in 'lint' 'typecheck' 'test:unit' 'build'; do
+              if pnpm "$check" > "$check.log" 2>&1; then result='passed'; else result='**failed**'; fi
+              echo "| \`pnpm $check\` | $result |"
+            done
+          } > checks.md
+          cat checks.md
+
+      - name: Open or update the pull request
+        if: steps.merge.outputs.result == 'merged'
+        run: |
+          git push --force origin "$BRANCH"
+          {
+            echo 'Weekly merge of [sharevb/it-tools](https://github.com/sharevb/it-tools) `chore/all-my-stuffs`, made by `scripts/fork/sync-upstream.sh`.'
+            echo
+            echo '```'
+            cat merge.log
+            echo '```'
+            echo
+            cat checks.md
+            echo
+            echo 'ci does not start on a pull request opened by a workflow: close and reopen it to run ci and e2e.'
+          } > body.md
+          if gh pr view "$BRANCH" --json state --jq .state 2> /dev/null | grep -q OPEN; then
+            gh pr edit "$BRANCH" --body-file body.md
+          else
+            gh pr create --base main --head "$BRANCH" --title 'chore: merge upstream sharevb/it-tools' --body-file body.md
+          fi
+
+      - name: Report conflicts
+        if: steps.merge.outputs.result == 'conflicts'
+        run: |
+          title='Upstream merge needs a hand'
+          {
+            echo 'The weekly merge of sharevb/it-tools stopped on conflicts:'
+            echo
+            echo '```'
+            cat merge.log
+            echo '```'
+            echo
+            echo 'Merge by hand as described in FORK.md: `git checkout main && sh scripts/fork/sync-upstream.sh`, resolve, commit, open a pull request.'
+          } > body.md
+          number="$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number')"
+          if [ -n "$number" ]; then
+            gh issue comment "$number" --body-file body.md
+          else
+            gh issue create --title "$title" --body-file body.md
+          fi
