@@ -1,0 +1,10 @@
+tools:
+  pdf-rotate:
+    title: 'Поворот PDF'
+    description: 'Поворачивает все или некоторые страницы PDF.'
+    texts:
+      drop: 'Перетащите PDF сюда или нажмите, чтобы выбрать'
+      label-angle: 'Повернуть'
+      label-pages: 'Страницы'
+      placeholder-pages: 'все или, например, 1,3-5'
+      button: 'Повернуть'

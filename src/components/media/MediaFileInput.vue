@@ -7,7 +7,7 @@ import { formatTimecode } from '@/utils/timecode';
 const props = withDefaults(
   defineProps<{
     file?: File;
-    kind: 'video' | 'audio' | 'image';
+    kind: 'video' | 'audio' | 'image' | 'file';
     accept?: string;
     title?: string;
     disabled?: boolean;
@@ -28,7 +28,7 @@ const metadata = ref<MediaMetadata>();
 // The browser cannot decode some files (e.g. H.264 in Chromium builds without proprietary codecs): ffmpeg can.
 const previewUnsupported = ref(false);
 
-const defaultAccept = { video: 'video/*,.mkv', audio: 'audio/*', image: 'image/*' };
+const defaultAccept = { video: 'video/*,.mkv', audio: 'audio/*', image: 'image/*', file: undefined };
 
 watch(file, () => {
   metadata.value = undefined;
@@ -122,7 +122,17 @@ defineExpose({ seek, element });
         @loadedmetadata="onLoaded"
         @error="onPreviewError"
       />
-      <img v-else ref="element" :src="url" alt="" mx-auto block max-h-360px max-w-full @load="onLoaded" />
+      <img
+        v-else-if="kind === 'image'"
+        ref="element"
+        :src="url"
+        alt=""
+        mx-auto
+        block
+        max-h-360px
+        max-w-full
+        @load="onLoaded"
+      />
 
       <div mt-2 flex flex-wrap items-center justify-between gap-2>
         <div text-sm op-70 data-test-id="media-info">{{ info }}</div>

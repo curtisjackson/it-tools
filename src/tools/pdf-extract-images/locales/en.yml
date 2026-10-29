@@ -1,0 +1,9 @@
+tools:
+  pdf-extract-images:
+    title: 'PDF image extractor'
+    description: 'Save the images embedded in a PDF as PNG files.'
+    texts:
+      drop: 'Drag and drop a PDF here, or click to select one'
+      hint: 'Each image is saved once at its own resolution; vector drawings are not images.'
+      none: 'No images found in this PDF.'
+      button: 'Extract images'

@@ -1,0 +1,13 @@
+tools:
+  images-to-pdf:
+    title: 'Images to PDF'
+    description: 'Make a PDF from images, one image per page.'
+    texts:
+      label-size: 'Page size'
+      size-fit: 'As the image'
+      label-orientation: 'Orientation'
+      orientation-auto: 'Auto'
+      orientation-portrait: 'Portrait'
+      orientation-landscape: 'Landscape'
+      label-margin: 'Margin (mm)'
+      button: 'Make PDF'

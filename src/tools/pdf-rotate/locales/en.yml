@@ -1,0 +1,10 @@
+tools:
+  pdf-rotate:
+    title: 'PDF rotator'
+    description: 'Rotate all or some pages of a PDF.'
+    texts:
+      drop: 'Drag and drop a PDF here, or click to select one'
+      label-angle: 'Rotate'
+      label-pages: 'Pages'
+      placeholder-pages: 'all, or e.g. 1,3-5'
+      button: 'Rotate PDF'

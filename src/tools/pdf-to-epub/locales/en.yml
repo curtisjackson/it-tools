@@ -1,0 +1,12 @@
+tools:
+  pdf-to-epub:
+    title: 'PDF to EPUB'
+    description: 'Turn the text of a PDF into an EPUB e-book, one chapter per page.'
+    texts:
+      drop: 'Drag and drop a PDF here, or click to select one'
+      label-title: 'Book title'
+      placeholder-title: 'From the PDF'
+      label-language: 'Language'
+      hint: 'Only the text is kept: images and layout are not. Scanned PDFs have no text — use OCR first.'
+      no-text: 'No text found: this PDF is probably a scan.'
+      button: 'Make EPUB'

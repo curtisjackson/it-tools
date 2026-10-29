@@ -316,6 +316,7 @@
     "parse-torrent": "^11.0.21",
     "paseto-ts": "^2.0.6",
     "path2d-polyfill": "^3.2.2",
+    "pdf-lib": "^1.17.1",
     "pdf-signature-reader": "^1.4.3",
     "pdfjs-dist": "^4.10.38",
     "picomatch": "^4.0.5",
