@@ -1,0 +1,9 @@
+tools:
+  video-extract-audio:
+    title: 'Audio extractor'
+    description: 'Save the soundtrack of a video as an audio file.'
+    texts:
+      format-copy: Original
+      hint-copy: 'The audio is copied without re-encoding: instant and lossless.'
+      no-audio: 'This video has no audio track.'
+      button: 'Extract audio'

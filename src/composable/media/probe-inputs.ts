@@ -1,4 +1,5 @@
 import type { FfmpegTaskContext } from './ffmpeg-runner';
+import { audioCodecOf } from './audio-formats';
 import { parseFfmpegProbe } from './probe-media';
 
 export interface ProbedInput {
@@ -8,6 +9,7 @@ export interface ProbedInput {
   height: number;
   hasAudio: boolean;
   hasVideo: boolean;
+  audioCodec?: string;
 }
 
 /** Reads the stream kinds, size and duration of a file already in the ffmpeg file system, inside a running task. */
@@ -27,5 +29,6 @@ export async function probeInput({ ffmpeg }: FfmpegTaskContext, name: string): P
     ...parseFfmpegProbe(logs),
     hasAudio: /Stream #[^\n]*Audio:/.test(banner),
     hasVideo: /Stream #[^\n]*Video:/.test(banner),
+    audioCodec: audioCodecOf(banner),
   };
 }
