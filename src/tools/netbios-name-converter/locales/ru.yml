@@ -1,0 +1,17 @@
+tools:
+  netbios-name-converter:
+    title: 'Имена NetBIOS'
+    description: 'Кодирует и декодирует имена NetBIOS (кодирование первого уровня по RFC 1001) с суффиксом — типом службы.'
+    texts:
+      label-offset: 'Смещение'
+      hint: 'Каждый байт делится на две половины, к которым прибавляется смещение (65, буква A, по стандарту). Имя — 15 символов, дополненных пробелами, и байт суффикса.'
+      title-encode: 'Кодирование'
+      title-decode: 'Декодирование'
+      label-name: 'Имя'
+      label-suffix: 'Суффикс'
+      label-custom-suffix: 'Hex'
+      suffix-none: 'Нет (имя из 16 символов)'
+      suffix-custom: 'Другой…'
+      invalid-suffix: 'Суффикс — один байт в шестнадцатеричном виде, например 1F'
+      label-upper: 'Заглавными'
+      label-encoded: 'Закодированное имя'

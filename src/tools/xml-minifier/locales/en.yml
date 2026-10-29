@@ -1,0 +1,10 @@
+tools:
+  xml-minifier:
+    title: 'XML minifier'
+    description: 'Remove the whitespace between the tags of an XML document and, optionally, its comments.'
+    texts:
+      label-preserve-comments: 'Keep comments'
+      label-self-close: 'Self-close empty elements'
+      input-label: 'Your XML'
+      output-label: 'Minified XML'
+      message-invalid: 'Invalid XML: {0}'

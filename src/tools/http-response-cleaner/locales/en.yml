@@ -1,0 +1,19 @@
+tools:
+  http-response-cleaner:
+    title: 'HTTP response cleaner'
+    description: 'Get the body of a raw HTTP response: strip the headers, join the chunks and decompress gzip or deflate.'
+    texts:
+      label-dechunk: 'Join chunks'
+      dechunk-auto: 'From the headers'
+      dechunk-always: 'Always'
+      dechunk-never: 'Never'
+      label-decompress: 'Decompress'
+      hint: 'Paste a response captured with a proxy or Wireshark, or load it from a file; binary bodies are kept byte for byte. Without headers, the body is checked for chunks and gzip itself. Brotli is not supported.'
+      label-input: 'Raw response'
+      title-headers: 'Headers'
+      title-body: 'Body'
+      step-dechunked: 'Chunks joined'
+      step-gzip: 'gzip'
+      step-deflate: 'deflate'
+      download: 'Download the body'
+      binary: 'The body is binary: download it to open it.'

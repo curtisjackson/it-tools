@@ -1,0 +1,18 @@
+tools:
+  bson-converter:
+    title: 'BSON ↔ JSON'
+    description: 'Переводит документы BSON (MongoDB) в Extended JSON и обратно: из hex, Base64 или файла .bson.'
+    texts:
+      label-mode: 'Направление'
+      label-json: 'JSON'
+      json-relaxed: 'Упрощённый'
+      json-canonical: 'Канонический'
+      label-indent: 'Отступ'
+      indent-none: 'Без отступа'
+      label-output: 'Вывод'
+      hint: 'Extended JSON сохраняет типы BSON: ObjectId — как $oid, даты — как $date и так далее. Упрощённый JSON читать проще, но 64-битные целые в нём — обычные числа, и после 2^53 они теряют точность; канонический сохраняет все типы. Несколько документов, как в файле mongodump, становятся массивом JSON, а массив JSON — несколькими документами.'
+      label-bson: 'BSON'
+      label-json-input: 'JSON или Extended JSON'
+      invalid-json: 'Не удалось преобразовать: {0}'
+      size: '{0} байт'
+      download: 'Скачать .bson'

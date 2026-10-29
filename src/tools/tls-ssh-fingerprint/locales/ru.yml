@@ -1,0 +1,23 @@
+tools:
+  tls-ssh-fingerprint:
+    title: 'Отпечатки TLS и SSH'
+    description: 'Считает отпечатки JA4, JA4S, JA3, JA3N и JA3S для TLS hello и HASSH для обмена ключами SSH.'
+    texts:
+      label-input: 'TLS hello или SSH KEXINIT'
+      label-ssh-side: 'Пакет SSH отправил'
+      ssh-client: 'Клиент (HASSH)'
+      ssh-server: 'Сервер (HASSHServer)'
+      hint: 'Вставьте полезную нагрузку TCP, например скопированную как hex из Wireshark: ClientHello или ServerHello — с заголовком записи TLS или без, или пакет SSH KEXINIT — со строкой баннера или без. Тип сообщения определяется сам. Под каждым хэшем — строка, из которой он посчитан; JA4_o сохраняет исходный порядок шифров и расширений.'
+      title-details: 'Подробности'
+      detail-version: 'Версия'
+      detail-supported-versions: 'Поддерживаемые версии'
+      detail-server-name: 'Имя сервера (SNI)'
+      detail-alpn: 'ALPN'
+      detail-cipher-suites: 'Наборы шифров'
+      detail-cipher-suite: 'Набор шифров'
+      detail-extensions: 'Расширения'
+      detail-kex: 'Обмен ключами'
+      detail-host-key: 'Ключ хоста'
+      detail-encryption: 'Шифрование'
+      detail-mac: 'MAC'
+      detail-compression: 'Сжатие'
