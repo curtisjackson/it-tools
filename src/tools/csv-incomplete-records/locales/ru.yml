@@ -1,0 +1,16 @@
+tools:
+  csv-incomplete-records:
+    title: 'Проверка полноты CSV'
+    description: 'Находит записи CSV с недостающими столбцами, пустыми ячейками или пустыми строками.'
+    texts:
+      label-input: 'CSV для проверки'
+      placeholder-input: 'Данные CSV...'
+      label-empty-values: 'Сообщать о пустых ячейках'
+      title-format: 'Формат CSV'
+      complete: 'CSV полный.'
+      found: 'Неполных записей: {0}'
+      header-line: 'Строка'
+      header-problem: 'Проблема'
+      issue-empty-line: 'пустая строка'
+      issue-missing-columns: 'не хватает столбцов: {0}'
+      issue-empty-values: 'пустые ячейки в столбцах {0}'

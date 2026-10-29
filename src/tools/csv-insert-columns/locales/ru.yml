@@ -1,0 +1,18 @@
+tools:
+  csv-insert-columns:
+    title: 'Вставка столбцов CSV'
+    description: 'Вставляет столбцы в CSV в начало, в конец или после нужного столбца.'
+    texts:
+      label-columns: 'Вставляемые столбцы (CSV)'
+      placeholder-columns: "заголовок\nзначение 1\nзначение 2"
+      label-position: 'Вставить'
+      position-prepend: 'В начало'
+      position-append: 'В конец'
+      position-header: 'После заголовка'
+      position-index: 'После N столбцов'
+      label-header: 'Заголовок'
+      label-index: 'Столбцов перед'
+      label-fill: 'Заполнять пустые'
+      placeholder-fill: 'ничем'
+      title-format: 'Формат CSV'
+      placeholder-input: 'Данные CSV...'

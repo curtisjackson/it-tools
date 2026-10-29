@@ -1,0 +1,12 @@
+tools:
+  csv-swap-columns:
+    title: 'Перестановка столбцов CSV'
+    description: 'Меняет местами два столбца CSV, выбранных по номеру или заголовку.'
+    texts:
+      label-by: 'Выбирать по'
+      by-position: 'Номеру'
+      by-header: 'Заголовку'
+      label-from: 'Столбец'
+      label-to: 'Со столбцом'
+      title-format: 'Формат CSV'
+      placeholder-input: 'Данные CSV...'

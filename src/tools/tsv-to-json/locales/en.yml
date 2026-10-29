@@ -1,0 +1,16 @@
+tools:
+  tsv-to-json:
+    title: 'TSV to JSON'
+    description: 'Convert tab-separated values (or another delimiter) to JSON.'
+    texts:
+      label-delimiter: 'Delimiter'
+      label-quote: 'Quote'
+      label-comment: 'Comment'
+      label-headers: 'First line is headers'
+      label-types: 'Detect numbers and booleans'
+      label-skip-empty: 'Skip empty lines'
+      label-indent: 'Indentation'
+      indent-space: 'Spaces'
+      indent-tab: 'Tab'
+      indent-none: 'Minified'
+      placeholder-input: 'Tab-separated data...'

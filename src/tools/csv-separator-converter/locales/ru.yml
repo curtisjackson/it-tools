@@ -1,0 +1,12 @@
+tools:
+  csv-separator-converter:
+    title: 'Смена разделителя CSV'
+    description: 'Меняет разделитель и кавычки в CSV, например запятую на точку с запятой для Excel.'
+    texts:
+      title-input: 'Вход'
+      title-output: 'Выход'
+      label-separator: 'Разделитель'
+      label-quote: 'Символ кавычек'
+      label-quote-all: 'Брать в кавычки всё'
+      hint: 'Ячейки с разделителем, кавычкой или переводом строки всегда берутся в кавычки.'
+      placeholder-input: 'Данные CSV...'

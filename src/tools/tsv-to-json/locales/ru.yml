@@ -1,0 +1,16 @@
+tools:
+  tsv-to-json:
+    title: 'TSV в JSON'
+    description: 'Переводит значения, разделённые табуляцией (или другим разделителем), в JSON.'
+    texts:
+      label-delimiter: 'Разделитель'
+      label-quote: 'Кавычки'
+      label-comment: 'Комментарий'
+      label-headers: 'Первая строка — заголовки'
+      label-types: 'Распознавать числа и логические'
+      label-skip-empty: 'Пропускать пустые строки'
+      label-indent: 'Отступ'
+      indent-space: 'Пробелы'
+      indent-tab: 'Табуляция'
+      indent-none: 'Без отступов'
+      placeholder-input: 'Данные через табуляцию...'

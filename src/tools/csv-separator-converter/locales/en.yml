@@ -1,0 +1,12 @@
+tools:
+  csv-separator-converter:
+    title: 'CSV separator converter'
+    description: 'Change the separator and quoting of a CSV, e.g. from comma to semicolon for Excel.'
+    texts:
+      title-input: 'Input'
+      title-output: 'Output'
+      label-separator: 'Separator'
+      label-quote: 'Quote character'
+      label-quote-all: 'Quote every cell'
+      hint: 'Cells containing the separator, a quote or a line break are always quoted.'
+      placeholder-input: 'CSV data...'
