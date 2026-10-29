@@ -1,0 +1,13 @@
+tools:
+  images-to-pdf:
+    title: 'Картинки в PDF'
+    description: 'Собирает PDF из картинок — по одной на страницу.'
+    texts:
+      label-size: 'Размер страницы'
+      size-fit: 'Как картинка'
+      label-orientation: 'Ориентация'
+      orientation-auto: 'Авто'
+      orientation-portrait: 'Книжная'
+      orientation-landscape: 'Альбомная'
+      label-margin: 'Поля (мм)'
+      button: 'Сделать PDF'
