@@ -1,0 +1,22 @@
+tools:
+  rot-cipher:
+    title: 'ROT13 и сдвиг текста'
+    description: 'Кодирует текст в ROT13 или шифром Цезаря либо циклически сдвигает символы.'
+    texts:
+      label-mode: 'Режим'
+      mode-caesar: 'Шифр Цезаря'
+      mode-rotate: 'Сдвиг символов'
+      hint-rot13: 'Сдвигает латинские буквы на 13: повторное применение возвращает исходный текст.'
+      hint-caesar: 'Сдвигает каждую букву на N позиций в её алфавите. Для расшифровки укажите отрицательный сдвиг.'
+      hint-rotate: 'Циклически сдвигает символы: «abcdef» со сдвигом вправо на 2 — «efabcd».'
+      label-shift: 'Сдвиг'
+      label-alphabet: 'Алфавит'
+      alphabet-latin: 'Латиница'
+      alphabet-cyrillic: 'Кириллица'
+      alphabet-both: 'Оба'
+      label-step: 'Шаг'
+      label-direction: 'Направление'
+      direction-left: 'Влево'
+      direction-right: 'Вправо'
+      label-multi-line: 'По строкам'
+      placeholder-input: 'Текст для кодирования...'
