@@ -1,0 +1,9 @@
+tools:
+  image-color-to-transparent:
+    title: 'Цвет в прозрачность'
+    description: 'Делает цвет на картинке прозрачным, например белый фон.'
+    texts:
+      label-color: 'Цвет'
+      label-similarity: 'Допуск ({0}%)'
+      label-softness: 'Мягкий край ({0}%)'
+      button: 'Сделать прозрачным'

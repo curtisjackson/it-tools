@@ -1,0 +1,9 @@
+tools:
+  image-replace-color:
+    title: 'Замена цвета'
+    description: 'Заменяет цвет на картинке другим.'
+    texts:
+      label-from: 'Заменить'
+      label-to: 'На'
+      label-similarity: 'Допуск ({0}%)'
+      button: 'Заменить цвет'

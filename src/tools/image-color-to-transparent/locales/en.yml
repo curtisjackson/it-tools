@@ -1,0 +1,9 @@
+tools:
+  image-color-to-transparent:
+    title: 'Color to transparent'
+    description: 'Make a colour of an image transparent, e.g. a white background.'
+    texts:
+      label-color: 'Colour'
+      label-similarity: 'Tolerance ({0}%)'
+      label-softness: 'Soft edge ({0}%)'
+      button: 'Make transparent'

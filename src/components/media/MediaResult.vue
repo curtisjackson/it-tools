@@ -49,7 +49,7 @@ const info = computed(() => {
     <c-card v-if="result && !running" :title="t('shared.media.result')" mx-auto mt-3 max-w-600px>
       <video v-if="kind === 'video'" :src="url" controls w-full max-h-360px />
       <audio v-else-if="kind === 'audio'" :src="url" controls w-full />
-      <img v-else-if="kind === 'image'" :src="url" alt="" mx-auto block max-h-360px max-w-full />
+      <img v-else-if="kind === 'image'" :src="url" alt="" class="checkerboard" mx-auto block max-h-360px max-w-full />
 
       <div mt-2 flex flex-wrap items-center justify-between gap-2>
         <div text-sm op-70 data-test-id="result-info">{{ info }}</div>
@@ -65,3 +65,10 @@ const info = computed(() => {
     </c-collapse>
   </div>
 </template>
+
+<style scoped>
+/* Shows transparent pixels. */
+.checkerboard {
+  background: repeating-conic-gradient(#8884 0% 25%, transparent 0% 50%) 50% / 16px 16px;
+}
+</style>

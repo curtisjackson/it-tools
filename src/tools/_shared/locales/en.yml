@@ -52,6 +52,7 @@ shared:
     download: Download
     download-all: Download all (zip)
     results: Results
+    pick-color: Click on the image to pick a colour.
     logs: Logs
   audio:
     format: Format
