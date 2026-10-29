@@ -20,8 +20,10 @@ const props = withDefaults(
     multiple?: boolean;
     minFiles?: number;
     ready?: boolean;
+    /** For tools that turn each file into a smaller one: show the size of each result next to its source. */
+    compareSizes?: boolean;
   }>(),
-  { accept: undefined, title: undefined, multiple: false, minFiles: 1, ready: true },
+  { accept: undefined, title: undefined, multiple: false, minFiles: 1, ready: true, compareSizes: false },
 );
 const emit = defineEmits<{ (event: 'update:files', files: File[]): void }>();
 
@@ -34,6 +36,7 @@ const running = ref(false);
 const progress = ref(0);
 const error = ref<string>();
 const results = ref<File[]>([]);
+const processed = ref<File[]>([]);
 let controller: AbortController | undefined;
 
 watch(inputs, (value) => {
@@ -58,6 +61,7 @@ async function process() {
     });
     if (!controller.signal.aborted) {
       results.value = Array.isArray(output) ? output : [output];
+      processed.value = sources;
     }
   } catch (err) {
     if (!controller.signal.aborted) {
@@ -107,6 +111,11 @@ const zipName = computed(() => replaceExtension(inputs.value[0]?.name ?? 'files'
       :source-size="sourceSize"
       @cancel="controller?.abort()"
     />
-    <file-result-list v-if="results.length > 1" :files="results" :zip-name="zipName" />
+    <file-result-list
+      v-if="results.length > 1"
+      :files="results"
+      :zip-name="zipName"
+      :originals="compareSizes && processed.length === results.length ? processed : undefined"
+    />
   </div>
 </template>

@@ -1,0 +1,14 @@
+tools:
+  image-compressor:
+    title: 'Сжатие картинок'
+    description: 'Сжимает JPEG, PNG и WebP в браузере, по одной или пачкой, до нужного размера или качества.'
+    texts:
+      drop-images: 'Перетащите картинки сюда или нажмите, чтобы выбрать'
+      label-quality: 'Качество ({0}%)'
+      label-max-size: 'Целевой размер'
+      label-max-dimension: 'Длинная сторона'
+      hint-zero: '0 — без ограничения. Картинки больше целевого размера теряют качество, а затем разрешение, пока не уложатся в него.'
+      label-format: 'Формат'
+      format-keep: 'Как есть'
+      label-keep-exif: 'Сохранить EXIF (JPEG)'
+      button: 'Сжать'

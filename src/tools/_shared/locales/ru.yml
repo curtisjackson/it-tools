@@ -50,6 +50,7 @@ shared:
     download: Скачать
     download-all: Скачать всё (zip)
     results: Результаты
+    pick-color: Нажмите на картинку, чтобы взять цвет.
     logs: Логи
   audio:
     format: Формат

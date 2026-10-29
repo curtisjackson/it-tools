@@ -1,0 +1,12 @@
+tools:
+  png-compressor:
+    title: 'PNG compressor'
+    description: 'Shrink PNG images by reducing them to a palette of up to 256 colours, keeping their size and transparency.'
+    texts:
+      drop-pngs: 'Drag and drop PNG images here, or click to select them'
+      label-quality: 'Quality ({0}%)'
+      label-max-size: 'Target size'
+      label-dithering: 'Dithering'
+      hint: '100% keeps 256 colours. With a target size, the palette shrinks until the file fits; 0 means no target. Dithering hides banding in gradients.'
+      missed-target: 'Could not reach the target size, even with 2 colours: {0}'
+      button: 'Compress'

@@ -1,0 +1,14 @@
+tools:
+  image-compressor:
+    title: 'Image compressor'
+    description: 'Compress JPEG, PNG and WebP images in the browser, one or many at a time, to a target size or quality.'
+    texts:
+      drop-images: 'Drag and drop images here, or click to select them'
+      label-quality: 'Quality ({0}%)'
+      label-max-size: 'Target size'
+      label-max-dimension: 'Longest side'
+      hint-zero: '0 means no limit. Images larger than the target size lose quality, then resolution, until they fit.'
+      label-format: 'Format'
+      format-keep: 'Keep'
+      label-keep-exif: 'Keep EXIF (JPEG)'
+      button: 'Compress'

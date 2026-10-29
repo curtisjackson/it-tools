@@ -25,7 +25,8 @@ Copyright (c) 2024 Ibrahima Gaye Coulibaly. Licensed under the MIT License.
   `video-crop`, `video-merge`, `video-add-audio`, `video-to-gif`, `images-to-gif`, `gif-speed`, `audio-converter`,
   `video-extract-audio`, `audio-trim`, `audio-speed`, `audio-merge`
 - PDF: `pdf-rotate`, `images-to-pdf`, `pdf-to-images`, `pdf-extract-images`, `pdf-to-epub`, `image-split-to-pdf`
-- Shared code: `src/utils/text-split.ts`, `text-items.ts`, `matrix.ts`, `csv.ts`, `page-ranges.ts`,
+- Images: `image-color-to-transparent`, `image-replace-color`, `image-opacity`, `image-compressor`, `png-compressor`
+- Shared code: `src/utils/text-split.ts`, `text-items.ts`, `matrix.ts`, `csv.ts`, `page-ranges.ts`, `image-pixels.ts`,
   `src/composable/media/ffmpeg-runner.ts`, `audio-formats.ts`
 
 ## CyberChef

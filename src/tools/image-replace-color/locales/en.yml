@@ -1,0 +1,9 @@
+tools:
+  image-replace-color:
+    title: 'Color replacer'
+    description: 'Replace a colour of an image with another one.'
+    texts:
+      label-from: 'Replace'
+      label-to: 'With'
+      label-similarity: 'Tolerance ({0}%)'
+      button: 'Replace colour'
