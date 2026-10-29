@@ -16,6 +16,10 @@ To keep merges from upstream easy, the fork adds files and leaves upstream's fil
 | `.github/workflows/fork-*.yml`, `scripts/fork/`, `deploy/` | The fork's image, upstream sync and server stack |
 | `FORK.md`, `THIRD_PARTY.md` | This file and the list of ported code |
 
+`src/tools/pdf-editor/emscripten-modules.d.ts` is the one fork file that concerns upstream code: EmbedPDF's types
+bring in `@types/emscripten`, which would otherwise type the ghostscript modules of upstream's PDF tools without
+their `FS` and `callMain`.
+
 The fork removed upstream's Docker, GitHub Pages, release and Vercel workflows, which publish to sharevb's accounts
 (`scripts/fork/upstream-deleted.txt`).
 
