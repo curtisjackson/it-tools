@@ -1,0 +1,43 @@
+# The stack of this fork on cj_serv: /home/cj/dockers/it-tools/compose.yaml (a copy of this file, seen by Dockge).
+# The image comes from .github/workflows/fork-docker.yml; Watchtower pulls a new :latest every night.
+# See FORK.md.
+services:
+  it-tools:
+    image: ghcr.io/curtisjackson/it-tools:latest
+    container_name: it-tools
+    restart: unless-stopped
+    # LAN address only: Nginx Proxy Manager publishes it as tools.bit2byte.pro.
+    ports:
+      - '192.168.1.11:9449:8080'
+    read_only: true
+    tmpfs:
+      - /tmp
+    # Served from /. A subpath needs BASE_URL and a /etc/nginx/conf.d writable by nginx:
+    #   environment: { BASE_URL: /it-tools/ }
+    #   tmpfs: [/tmp, '/etc/nginx/conf.d:uid=101,gid=101']
+    healthcheck:
+      test: ['CMD', 'wget', '-q', '-O', '/dev/null', 'http://127.0.0.1:8080/']
+      interval: 30s
+      timeout: 3s
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+      - com.centurylinklabs.watchtower.scope=it-tools
+
+  watchtower:
+    # A fork of containrrr/watchtower, which is archived and does not work with Docker 29.
+    image: nickfedor/watchtower:latest
+    container_name: it-tools-watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      # Only the containers of this stack, with the labels above.
+      WATCHTOWER_LABEL_ENABLE: 'true'
+      WATCHTOWER_SCOPE: it-tools
+      WATCHTOWER_CLEANUP: 'true'
+      WATCHTOWER_SCHEDULE: '0 0 4 * * *'
+      TZ: Europe/Moscow
+    labels:
+      # It updates itself too.
+      - com.centurylinklabs.watchtower.enable=true
+      - com.centurylinklabs.watchtower.scope=it-tools
