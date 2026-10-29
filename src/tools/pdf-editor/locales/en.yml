@@ -1,0 +1,8 @@
+tools:
+  pdf-editor:
+    title: 'PDF editor'
+    description: 'View and annotate a PDF in the browser: highlight and comment, draw, add text, shapes, images and stamps, sign, fill forms, redact, then download the result.'
+    texts:
+      drop: 'Drag and drop a PDF here, or click to select one'
+      close: 'Open another PDF'
+      hint: 'Nothing leaves your browser. Download the edited PDF from the document menu (☰ → Export).'

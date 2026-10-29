@@ -1,0 +1,37 @@
+import { translate as t } from '@/plugins/i18n.plugin';
+import { defineTool } from '../tool';
+
+export const tool = defineTool({
+  name: t('tools.pdf-editor.title'),
+  path: '/pdf-editor',
+  description: t('tools.pdf-editor.description'),
+  keywords: [
+    'pdf',
+    'editor',
+    'annotate',
+    'highlight',
+    'comment',
+    'draw',
+    'sign',
+    'signature',
+    'redact',
+    'stamp',
+    'form',
+    'fill',
+    'edit',
+    'редактор',
+    'пометки',
+    'выделить',
+    'комментарий',
+    'подпись',
+    'подписать',
+    'закрасить',
+    'штамп',
+    'заполнить форму',
+  ],
+  component: () => import('./pdf-editor.vue'),
+  icon: defineAsyncComponent(() => import('@vicons/tabler/es/WritingSign')),
+  createdAt: new Date('2026-10-29'),
+  category: 'PDF',
+  npmPackages: ['@embedpdf/vue-pdf-viewer'],
+});
