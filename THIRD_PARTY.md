@@ -34,4 +34,15 @@ Copyright (c) 2024 Ibrahima Gaye Coulibaly. Licensed under the MIT License.
 Crown Copyright. Licensed under the Apache License, Version 2.0.
 
 - Tools: `extract-dates`
-- Shared code: `src/utils/byte-stream.ts` (`Stream`)
+- Hash tools: `hash-inspector`, `windows-password-hashes`, `legacy-hashes`, `keyed-mac`, `fuzzy-hash`
+- Shared code: `src/utils/byte-stream.ts` (`Stream`), `src/utils/ascon.ts` (Ascon-Mac)
+
+## Other ported or vendored code
+
+| Code | Version | License | Where |
+| --- | --- | --- | --- |
+| [crypto-api](https://github.com/nf404/crypto-api) | 0.8.5 | MIT | `src/libs/crypto-api` (MD2, SHA-0, HAS-160, Snefru) |
+| GOST R 34.11 by Rudolf Nickolaev, from CyberChef | 1.76 | Apache-2.0 (Streebog part: BSD-style notice) | `src/libs/gost` |
+| [node-md6](https://github.com/Neo-Desktop/md6) | 0.1.0 | CC0-1.0 | `src/tools/legacy-hashes/md6.ts` |
+| [ssdeep.js](https://github.com/cloudtracer/ssdeep.js) | 0.0.3 | MIT | `src/tools/fuzzy-hash/ssdeep.ts` |
+| [ctph.js](https://github.com/huwenshuo/ctph.js) | 0.0.5 | MIT | `src/tools/fuzzy-hash/ctph.ts` |
