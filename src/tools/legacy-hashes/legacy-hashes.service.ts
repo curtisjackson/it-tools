@@ -1,5 +1,5 @@
 // The rare hashes of CyberChef (Apache-2.0) v11.5.0 — src/core/operations/MD2.mjs, MD6.mjs, SHA0.mjs, HAS160.mjs,
-// Snefru.mjs, Shake.mjs, GOSTHash.mjs, Streebog.mjs, MurmurHash3.mjs — in one tool, over bytes rather than text. MD2, SHA-0, HAS-160 and Snefru
+// Snefru.mjs, Shake.mjs, GOSTHash.mjs, Streebog.mjs, AsconHash.mjs, MurmurHash3.mjs — in one tool, over bytes rather than text. MD2, SHA-0, HAS-160 and Snefru
 // come from crypto-api (MIT), as in CyberChef, vendored in src/libs because its imports have no extensions; SHAKE from
 // @noble/hashes (MIT) instead of js-sha3.
 import { shake128, shake256 } from '@noble/hashes/sha3.js';
@@ -10,6 +10,7 @@ import Snefru from '@/libs/crypto-api/hasher/snefru.mjs';
 import { type GostSBox, gost94, streebog } from './gost';
 import { md6 } from './md6';
 import { murmurHash3 } from './murmurhash3';
+import { asconHash } from '@/utils/ascon';
 
 export type LegacyAlgorithm =
   | 'md2'
@@ -22,6 +23,11 @@ export type LegacyAlgorithm =
   | 'gost94'
   | 'streebog256'
   | 'streebog512'
+  | 'ascon-hash256'
+  | 'ascon-xof128'
+  | 'ascon-cxof128'
+  | 'ascon-hash'
+  | 'ascon-hasha'
   | 'murmur3';
 
 export const legacyAlgorithms: LegacyAlgorithm[] = [
@@ -35,6 +41,11 @@ export const legacyAlgorithms: LegacyAlgorithm[] = [
   'gost94',
   'streebog256',
   'streebog512',
+  'ascon-hash256',
+  'ascon-xof128',
+  'ascon-cxof128',
+  'ascon-hash',
+  'ascon-hasha',
   'murmur3',
 ];
 
@@ -50,6 +61,8 @@ export interface LegacyHashOptions {
   seed?: number;
   /** GOST R 34.11-94. */
   sBox?: GostSBox;
+  /** Ascon-CXOF128. */
+  customization?: Uint8Array;
 }
 
 /** The defaults of CyberChef. */
@@ -64,6 +77,11 @@ export const defaultOptions: Record<LegacyAlgorithm, LegacyHashOptions> = {
   gost94: { sBox: 'D-A' },
   streebog256: {},
   streebog512: {},
+  'ascon-hash256': {},
+  'ascon-xof128': { size: 256 },
+  'ascon-cxof128': { size: 256 },
+  'ascon-hash': {},
+  'ascon-hasha': {},
   murmur3: { seed: 0 },
 };
 
@@ -89,7 +107,7 @@ function checkRange(value: number, min: number, max: number, what: string) {
 }
 
 export function legacyHash(algorithm: LegacyAlgorithm, bytes: Uint8Array, options: LegacyHashOptions = {}): Uint8Array {
-  const { rounds, size, levels, key, seed, sBox } = { ...defaultOptions[algorithm], ...options };
+  const { rounds, size, levels, key, seed, sBox, customization } = { ...defaultOptions[algorithm], ...options };
   switch (algorithm) {
     case 'md2':
       checkRange(rounds!, 0, 1000, 'The number of rounds');
@@ -121,6 +139,21 @@ export function legacyHash(algorithm: LegacyAlgorithm, bytes: Uint8Array, option
       return streebog(bytes, 256);
     case 'streebog512':
       return streebog(bytes, 512);
+    case 'ascon-hash256':
+      return asconHash(bytes, 'Ascon-Hash256');
+    case 'ascon-hash':
+      return asconHash(bytes, 'Ascon-Hash');
+    case 'ascon-hasha':
+      return asconHash(bytes, 'Ascon-Hasha');
+    case 'ascon-xof128':
+    case 'ascon-cxof128':
+      if (!(Number.isInteger(size) && size! > 0 && size! % 8 === 0 && size! <= 65536)) {
+        throw new RangeError('The XOF size is a positive multiple of 8 bits');
+      }
+      return asconHash(bytes, algorithm === 'ascon-xof128' ? 'Ascon-XOF128' : 'Ascon-CXOF128', {
+        length: size! / 8,
+        customization,
+      });
     case 'murmur3': {
       const hash = murmurHash3(bytes, seed);
       return new Uint8Array([hash >>> 24, (hash >>> 16) & 0xff, (hash >>> 8) & 0xff, hash & 0xff]);

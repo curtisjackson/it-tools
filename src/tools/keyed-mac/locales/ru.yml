@@ -1,0 +1,9 @@
+tools:
+  keyed-mac:
+    title: 'CMAC и Ascon-Mac'
+    description: 'Считает CMAC (AES или Triple DES) или Ascon-Mac сообщения с секретным ключом.'
+    texts:
+      label-algorithm: 'Алгоритм'
+      label-key: 'Ключ'
+      hint-key: 'Размер ключа в байтах: {0}. Ключ Triple DES из 16 байт используется как K1 K2 K1.'
+      label-message: 'Сообщение'

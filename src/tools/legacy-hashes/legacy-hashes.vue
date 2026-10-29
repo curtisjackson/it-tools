@@ -34,6 +34,8 @@ const settings = useQueryParamOrStorage({
     murmurSeed: 0,
     murmurSigned: false,
     gostSBox: 'D-A' as GostSBox,
+    asconSize: 256,
+    asconCustomization: '',
   },
 });
 
@@ -48,6 +50,11 @@ const labels: Record<LegacyAlgorithm, string> = {
   gost94: 'GOST R 34.11-94',
   streebog256: 'Streebog-256',
   streebog512: 'Streebog-512',
+  'ascon-hash256': 'Ascon-Hash256',
+  'ascon-xof128': 'Ascon-XOF128',
+  'ascon-cxof128': 'Ascon-CXOF128',
+  'ascon-hash': 'Ascon-Hash v1.2',
+  'ascon-hasha': 'Ascon-Hasha v1.2',
   murmur3: 'MurmurHash3',
 };
 
@@ -78,6 +85,10 @@ function options(algorithm: LegacyAlgorithm) {
       return { size: s.shake256Size };
     case 'gost94':
       return { sBox: s.gostSBox };
+    case 'ascon-xof128':
+      return { size: s.asconSize };
+    case 'ascon-cxof128':
+      return { size: s.asconSize, customization: new TextEncoder().encode(s.asconCustomization) };
     default:
       return {};
   }
@@ -191,6 +202,23 @@ const results = computed(() =>
                 w-200px
               />
               <n-text depth="3" text-sm>{{ t('tools.legacy-hashes.texts.hint-sbox') }}</n-text>
+            </n-space>
+            <n-space align="center">
+              <span w-130px>Ascon XOF</span>
+              <n-form-item
+                :label="t('tools.legacy-hashes.texts.label-size')"
+                label-placement="left"
+                :show-feedback="false"
+              >
+                <n-input-number-i18n v-model:value="settings.asconSize" :min="8" :step="8" w-120px />
+              </n-form-item>
+              <c-input-text
+                v-model:value="settings.asconCustomization"
+                :label="t('tools.legacy-hashes.texts.label-customization')"
+                label-position="left"
+                raw-text
+                w-260px
+              />
             </n-space>
             <n-space align="center">
               <span w-130px>MurmurHash3</span>

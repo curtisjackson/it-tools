@@ -1,7 +1,7 @@
 tools:
   legacy-hashes:
     title: 'Редкие хэши'
-    description: 'Считает редкие и исторические хэши текста или файла: MD2, MD6, SHA-0, HAS-160, Snefru, SHAKE, ГОСТ Р 34.11-94, Стрибог и MurmurHash3.'
+    description: 'Считает редкие и исторические хэши текста или файла: MD2, MD6, SHA-0, HAS-160, Snefru, SHAKE, ГОСТ Р 34.11-94, Стрибог, Ascon и MurmurHash3.'
     texts:
       label-input: 'Текст или файл'
       label-encoding: 'Кодировка хэша'
@@ -14,3 +14,4 @@ tools:
       label-signed: 'Со знаком'
       hint-bits: 'Размер результата в битах.'
       hint-sbox: 'D-A — набор КриптоПро (RFC 4357), самый распространённый; D-TEST — тестовый набор RFC 5831.'
+      label-customization: 'Строка настройки (CXOF)'

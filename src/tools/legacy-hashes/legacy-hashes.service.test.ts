@@ -62,6 +62,14 @@ describe('legacy-hashes', () => {
     );
   });
 
+  it('computes the Ascon hashes', () => {
+    // Test vector of CyberChef: tests/operations/tests/Ascon.mjs.
+    expect(hex('ascon-hash256', HELLO)).toBe('f40e1ce8d4272e628e9535193f196f4ff2a720b00f6380c5d6f16b975f3a7777');
+    expect(hex('ascon-hash', '')).toBe('7346bc14f036e87ae03d0997913088f5f68411434b3cf8b54fa796a80d251f91');
+    expect(hex('ascon-xof128', HELLO, { size: 64 })).toHaveLength(16);
+    expect(() => hex('ascon-cxof128', HELLO, { size: 4 })).toThrow('multiple of 8');
+  });
+
   it('computes MurmurHash3 like CyberChef', () => {
     // Test vectors of CyberChef: tests/operations/tests/MurmurHash3.mjs.
     expect(murmurHash3(text(''))).toBe(0);
