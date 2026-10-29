@@ -1,0 +1,10 @@
+tools:
+  image-editor:
+    title: 'Image editor'
+    description: 'Edit an image in the browser: crop, rotate and flip, brightness, contrast and other adjustments, filters, text, shapes, drawing, a watermark and a new size.'
+    texts:
+      drop: 'Drag and drop an image here, or click to select one'
+      loading: 'Loading the editor...'
+      close: 'Open another image'
+      default-text: 'Text'
+      hint: 'Nothing leaves your browser. Save downloads the edited image: pick its name, format and quality there.'
