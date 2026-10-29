@@ -16,7 +16,7 @@ test.describe('Tool - Formula calculator', () => {
     await page.goto('/formula-calculator?calc=voltage-drop');
     await expect(page.getByTestId('value-x').locator('input')).toHaveValue('2.24');
 
-    await page.locator('input[type="radio"][value="A"]').check({ force: true });
+    await page.getByTestId('solve-A').click();
     await expect(page.getByTestId('value-A').locator('input')).toHaveValue('1.5');
     await page.getByTestId('value-x').locator('input').fill('3');
     await page.getByTestId('value-x').locator('input').blur();

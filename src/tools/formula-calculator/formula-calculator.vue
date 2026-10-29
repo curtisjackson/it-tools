@@ -324,7 +324,11 @@ function presetOptions(rows: Record<string, unknown>) {
               />
               <div v-else />
               <div flex justify-center>
-                <n-radio :value="variable.name" :disabled="variable.name in presetValues" />
+                <n-radio
+                  :value="variable.name"
+                  :disabled="variable.name in presetValues"
+                  :data-test-id="`solve-${variable.name}`"
+                />
               </div>
 
               <template v-if="variable.diameter">
