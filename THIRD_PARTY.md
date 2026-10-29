@@ -34,7 +34,7 @@ Copyright (c) 2024 Ibrahima Gaye Coulibaly. Licensed under the MIT License.
 Crown Copyright. Licensed under the Apache License, Version 2.0.
 
 - Tools: `extract-dates`
-- Compression tools: `compression-converter`
+- Compression tools: `compression-converter`, `archive-manager`
 - Shared code: `src/utils/byte-stream.ts` (`Stream`)
 
 ## Other ported or vendored code

@@ -437,6 +437,9 @@ importers:
       '@younestouati/playing-cards-standard-deck':
         specifier: ^6.0.1
         version: 6.0.1
+      '@zip.js/zip.js':
+        specifier: ^2.24.0
+        version: 2.24.0
       '@zxcvbn-ts/core':
         specifier: ^3.0.4
         version: 3.0.4
@@ -5433,6 +5436,10 @@ packages:
 
   '@younestouati/playing-cards-standard-deck@6.0.1':
     resolution: {integrity: sha512-3MurUNX3/Z/pZz5Ew1EqSAb4uZPO8sQk330VJ38E8RDaKCb0qLAzpL2yFB4pkoddSnCQDzbnEjPLQxxIvd1gtg==}
+
+  '@zip.js/zip.js@2.24.0':
+    resolution: {integrity: sha512-WlaVKzdqBK+RF3bdiXZWbdCnvGB6PdO4IHC1mn/2Yfl3bASgqUNegnU3+PNg61iecwoPfUi5BgLUPqBukXpyWw==}
+    engines: {bun: '>=0.7.0', deno: '>=1.0.0', node: '>=18.0.0'}
 
   '@zone-eu/mailsplit@5.4.13':
     resolution: {integrity: sha512-j40NeNlSAivqnKEjzZYsGP/bKWr2zwuyb8XOYsC3i0ZlfM5UnTYTa7aCRkE8rYQvVzE1dRjVYdvZ1Epi6x+h6w==}
@@ -16228,6 +16235,8 @@ snapshots:
   '@xtuc/long@4.2.2': {}
 
   '@younestouati/playing-cards-standard-deck@6.0.1': {}
+
+  '@zip.js/zip.js@2.24.0': {}
 
   '@zone-eu/mailsplit@5.4.13':
     dependencies:

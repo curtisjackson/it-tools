@@ -1,0 +1,30 @@
+// Made with GNU tar 1.35, Info-ZIP zip 3.0, bsdtar 3.8 and Python zipfile; see the comment on each archive.
+// The tar archives are stored gzipped to keep this file small: they are mostly zero padding.
+// Every archive holds some of: hello.txt (hello), link.txt -> hello.txt, docs/, docs/привет.txt (привет),
+// and a file whose path is longer than 100 bytes, LONG_PATH (deep file).
+
+export const LONG_PATH =
+  'a-rather-long-folder-name-for-testing-tar-paths/another-quite-long-folder-name-inside-it/file-with-a-long-name.txt';
+
+// tar --format=<name> --owner=0 --group=0 --mtime='2024-01-02 03:04:05 UTC' --no-recursion, gzipped
+export const TAR_GZ: Record<'gnu' | 'posix' | 'ustar' | 'v7', string> = {
+  gnu: 'H4sIAAAAAAAC/+3WTU6EMBQH8K49BRcoFOjH1gNwCSIdaUQYoRNdGo9kYuLOKzA38oEbGRPHTdHI/7dp05aQ8Hh9r7ZN08X+wbNwBNFSziM5HaddlkolpTZ0TNG60ZlhkWArOAy+7KOIbVQ9xf+CwUY1rr0JnP5znhtjvsl/scz/NM0zzaKsXuFy2nj+V93VkAR+xxx/pX4ef6FNSve/wv2/TvzHt+Pj+Do+jy/HpwDpdrb+p+ok/6XIFer/Gj6HHm3A9sRJnFwWXXtdUCPwS/1/qvNFLZi7hZxFBfI/uJL3pa9tzxv6B/iuayqat+WtpXnPvR28o3X6RHxP54akbLv5+N3Befv1IdcOrqLBJzvXWH7vfM3Lj2PTfuhOE/5i/M/X/2xZ/3OhjET9X6X/s3YfTbFC8QcAAAAAAAAAAAD4V94BrrrDRwAoAAA=',
+  posix:
+    'H4sIAAAAAAAC/+2YT26CQBjFZ+0puAA4/6cs3HfZK0x0rKQIFsbUZdMjNWnSXa+AN+qAXSA2tTYypvK9DYYZo8nH7703ROM7vbk1emaKcrwwaZpHdmPRWYWdJOfN1al7xVhxRLjgXCq3TSBMKJECBRvkQevS6sL9FTRMMRxomyzNhKiYUXWDYxVxKVmsOI1HbnX6zSoXhIh4hED/Xj0hfxr/WO7zj5WUCgUY+PczfyB5sIra+Z8m2UMPXvCH/MdEQf5fMP+/Eh7y/9rVE/IH/Culfsh/3OGfMClRQH2Uk4Hzv+f/s3xaXqL/Hfg/Ie4W+D+c/0A9q0Z+3PNvNIgL8Xv/x1IJ1/8E8O9n/q0IqD62z9V79Vq9bV/OlbzH/J8w2vF/SRkB//fk/yttF5PmOegOfwSng0Hw3wf0p/Q/Ijr8c5cX8P7Ph9qjB2SHJx0Wzv5NEaZ5dh/O89S1gDDTS+M+F6E1pU3cfYdIWMdEOdZZ3mx/XCfWHH4pycpk5i623SmO8U9Vp/8xdyKE939eRCjfFYDeHoR5kprwKbGLUO+21evQLq6d/9bYj+c/7fIvGYf899L/jFkF9ayAKBAIBBqUPgEetVYDACgAAA==',
+  ustar:
+    'H4sIAAAAAAAC/+3WS07DMBQFUI9ZRTZgmo8/67Eal1iYuMSuYFh1SUhIzNhCuiNewoQWiTJoIkHumThKHFnK831OY70Pt+k5senkRAkxjuR8HJ6yQkghlKZpku5rpTTLcjaDXUymoyXZMjVD/W8YLJR37f3E8R9zrrX+If/5af6LolKKZWUzQ3NaeP7rsI6ridcY6y/l7+ufKy2p/0v0/3nq378f9/1b/9K/Hg8TxO3i+V/Is/wL2i84/+fwtfT4DViejfOWP7nUcMN9aO94ax7slXvA5fyXp/mvqlKoP55/wzuTGtt9ftVN8DVdDx+XrjuebEyO7tPafEvz4sq0YZz+uHPJfn/JtdHVNFy7N9fWbrNhEyD8AAAAAAAAAAAAAAAA/8IHlOsHzQAoAAA=',
+  v7: 'H4sIAAAAAAAC/+3TMQ7CMAwF0MycghNAEHFyIEDqUKkDHTg+CWOHbp14b7EUW7IU60+veV4u62dNx8ldLeVXu20d3XQrUUptfSz6e723nM6Jw03j/if/8K+ey+N9PXjHSHiL2Ml/3uQ/ovT8h/MAAAAAAAAAAMCuLxXrzDMAKAAA',
+};
+
+// zip -X hello.txt docs/привет.txt
+export const ZIP_PLAIN =
+  'UEsDBAoAAAAAAIMwIlggMDo2BgAAAAYAAAAJAAAAaGVsbG8udHh0aGVsbG8KUEsDBAoAAAgAAIMwIlg6HJ2jDQAAAA0AAAAVAAAAZG9jcy/Qv9GA0LjQstC10YIudHh00L/RgNC40LLQtdGCClBLAQIeAwoAAAAAAIMwIlggMDo2BgAAAAYAAAAJAAAAAAAAAAEAAACkgQAAAABoZWxsby50eHRQSwECHgMKAAAIAACDMCJYOhydow0AAAANAAAAFQAAAAAAAAABAAAApIEtAAAAZG9jcy/Qv9GA0LjQstC10YIudHh0UEsFBgAAAAACAAIAegAAAG0AAAAAAA==';
+// zip -X -P secret hello.txt docs/привет.txt: ZipCrypto
+export const ZIP_CRYPTO =
+  'UEsDBAoACQAAAIMwIlggMDo2EgAAAAYAAAAJAAAAaGVsbG8udHh0fCNcaaq6VBNYaMzWShYdaqlaUEsHCCAwOjYSAAAABgAAAFBLAwQKAAkIAACDMCJYOhydoxkAAAANAAAAFQAAAGRvY3Mv0L/RgNC40LLQtdGCLnR4dHCKGSusI/secRX8W1/kkIW2SIf2JQUfS5RQSwcIOhydoxkAAAANAAAAUEsBAh4DCgAJAAAAgzAiWCAwOjYSAAAABgAAAAkAAAAAAAAAAQAAAKSBAAAAAGhlbGxvLnR4dFBLAQIeAwoACQgAAIMwIlg6HJ2jGQAAAA0AAAAVAAAAAAAAAAEAAACkgUkAAABkb2NzL9C/0YDQuNCy0LXRgi50eHRQSwUGAAAAAAIAAgB6AAAApQAAAAAA';
+// bsdtar --format zip --options zip:encryption=aes256 --passphrase secret hello.txt
+export const ZIP_AES =
+  'UEsDBBQACQBjAIIwIlgAAAAAAAAAAAAAAAAJACsAaGVsbG8udHh0dXgLAAEE6AMAAAToAwAAAZkHAAIAQUUDCABVVA0AByV9k2UlfZNlnUDjagrT9lhOoUV3LrDQ7L1468ObG4u9I1Xtw88ETUDowUW+KxAUOFBLBwgAAAAAJAAAAAYAAABQSwECFAMUAAkAYwCCMCJYAAAAACQAAAAGAAAACQAjAAAAAAAAAAAApIEAAAAAaGVsbG8udHh0dXgLAAEE6AMAAAToAwAAAZkHAAIAQUUDCABVVAUAASV9k2VQSwUGAAAAAAEAAQBaAAAAhgAAAAAA';
+// Python zipfile, then the name patched to отчёт.txt in CP866 without the UTF-8 flag, as old Windows writes it
+export const ZIP_CP866 =
+  'UEsDBBQAAAAIAIMYIljmHmRTDQAAAAsAAAAJAAAAruLn8eIudHh0Sy6wMDNTyEvMTeUCAFBLAQIUAxQAAAAIAIMYIljmHmRTDQAAAAsAAAAJAAAAAAAAAAAAAACAAQAAAACu4ufx4i50eHRQSwUGAAAAAAEAAQA3AAAANAAAAAAA';
