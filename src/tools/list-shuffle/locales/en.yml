@@ -1,0 +1,9 @@
+tools:
+  list-shuffle:
+    title: 'List shuffler'
+    description: 'Shuffle the items of a list into a random order.'
+    texts:
+      label-join-separator: 'Join with'
+      label-limit: 'Keep only'
+      button-again: 'Shuffle again'
+      placeholder-input: 'List items...'

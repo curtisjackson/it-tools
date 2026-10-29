@@ -1,0 +1,22 @@
+tools:
+  rot-cipher:
+    title: 'ROT13 and text shift'
+    description: 'Encode text with ROT13 or a Caesar shift, or rotate its characters.'
+    texts:
+      label-mode: 'Mode'
+      mode-caesar: 'Caesar shift'
+      mode-rotate: 'Rotate characters'
+      hint-rot13: 'Shifts Latin letters by 13: applying it twice gives back the original text.'
+      hint-caesar: 'Shifts each letter by N positions in its alphabet. Use a negative shift to decode.'
+      hint-rotate: 'Moves characters circularly: "abcdef" rotated right by 2 is "efabcd".'
+      label-shift: 'Shift'
+      label-alphabet: 'Alphabet'
+      alphabet-latin: 'Latin'
+      alphabet-cyrillic: 'Russian'
+      alphabet-both: 'Both'
+      label-step: 'Step'
+      label-direction: 'Direction'
+      direction-left: 'Left'
+      direction-right: 'Right'
+      label-multi-line: 'Line by line'
+      placeholder-input: 'Text to encode...'

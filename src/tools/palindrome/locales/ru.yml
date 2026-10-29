@@ -1,0 +1,12 @@
+tools:
+  palindrome:
+    title: 'Палиндромы'
+    description: 'Проверяет, являются ли слова или строки палиндромами, и составляет палиндромы.'
+    texts:
+      label-mode: 'Режим'
+      mode-check: 'Проверить'
+      mode-create: 'Составить'
+      label-letters-only: 'Без учёта регистра, пробелов и знаков'
+      label-last-char: 'Повторять последний символ'
+      label-multi-line: 'По строкам'
+      placeholder-input: 'Слова или строки...'

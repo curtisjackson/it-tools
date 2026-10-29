@@ -1,0 +1,16 @@
+tools:
+  list-most-popular:
+    title: 'Most frequent items'
+    description: 'Count how often each item of a list occurs.'
+    texts:
+      label-sort: 'Sort by'
+      sort-count: 'Count'
+      sort-alphabetic: 'Alphabet'
+      label-format: 'Show'
+      format-count: 'Count'
+      format-percentage: 'Percentage'
+      format-total: 'Out of total'
+      label-trim: 'Trim items'
+      label-skip-empty: 'Skip empty items'
+      label-ignore-case: 'Ignore case'
+      placeholder-input: 'List items...'

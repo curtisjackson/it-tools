@@ -1,0 +1,14 @@
+tools:
+  list-chunk:
+    title: 'Разбивка списка'
+    description: 'Разбивает список на группы по N элементов.'
+    texts:
+      label-size: 'Элементов в группе'
+      label-item-separator: 'Разделитель элементов'
+      label-chunk-separator: 'Разделитель групп'
+      label-left-wrap: 'Начало группы'
+      label-right-wrap: 'Конец группы'
+      label-skip-empty: 'Пропускать пустые'
+      label-pad: 'Дополнять последнюю группу'
+      label-pad-with: 'Чем дополнять'
+      placeholder-input: 'Элементы списка...'

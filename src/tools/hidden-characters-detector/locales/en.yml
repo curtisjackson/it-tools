@@ -1,0 +1,23 @@
+tools:
+  hidden-characters-detector:
+    title: 'Hidden characters detector'
+    description: 'Find invisible, zero-width and text-direction characters in a text, and remove them.'
+    texts:
+      label-input: 'Text to check'
+      placeholder-input: 'Paste a text...'
+      label-bidi: 'Text direction (bidi)'
+      label-invisible: 'Invisible and special spaces'
+      label-zero-width: 'Zero-width'
+      none-found: 'No hidden characters found.'
+      found: 'Found {0} hidden character(s).'
+      warning-bidi: ' Text-direction characters can make text or code look different from what it is (Trojan Source).'
+      title-marked: 'Text with markers'
+      title-characters: 'Characters'
+      title-cleaned: 'Cleaned text'
+      header-position: 'Position'
+      header-code: 'Code'
+      header-name: 'Name'
+      header-category: 'Category'
+      category-bidi: 'Text direction'
+      category-invisible: 'Invisible'
+      category-control: 'Control'

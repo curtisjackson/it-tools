@@ -1,0 +1,15 @@
+tools:
+  extract-dates:
+    title: 'Date extractor'
+    description: 'Find the dates written in a text, and normalise them to ISO 8601.'
+    texts:
+      label-order: 'Day and month'
+      order-dmy: 'Day first (31.12.2024)'
+      order-mdy: 'Month first (12/31/2024)'
+      label-output: 'Output'
+      output-text: 'As written'
+      label-unique: 'Remove duplicates'
+      label-total: 'Show total'
+      hint: 'Recognises YYYY-MM-DD (with an optional time) and day/month/year with -, /, . or space; dates that do not exist are skipped.'
+      total: 'Dates found: {0}'
+      placeholder-input: 'Text with dates...'

@@ -1,0 +1,13 @@
+tools:
+  numbers-sum:
+    title: 'Sum of numbers'
+    description: 'Add up the numbers found in a text, or print the running total.'
+    texts:
+      label-mode: 'Find numbers'
+      mode-smart: 'Anywhere in the text'
+      mode-delimiter: 'Between separators'
+      hint-smart: 'Takes every number in the text, such as prices in a sentence.'
+      hint-delimiter: 'Splits the text by the separator and adds the parts that are numbers.'
+      label-separator: 'Separator'
+      label-running-sum: 'Running total'
+      placeholder-input: 'Text with numbers...'

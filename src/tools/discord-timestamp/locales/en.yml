@@ -1,0 +1,19 @@
+tools:
+  discord-timestamp:
+    title: 'Discord timestamp'
+    description: "Generate Discord timestamps that show a date in each reader's time zone."
+    texts:
+      label-date: 'Date and time'
+      button-now: 'Now'
+      button-copy: 'Copy'
+      hint: 'Paste the code into a Discord message: everyone sees the date in their own time zone and language.'
+      header-format: 'Format'
+      header-preview: 'Shows as'
+      header-code: 'Code'
+      format-t: 'Short time'
+      format-T: 'Long time'
+      format-d: 'Short date'
+      format-D: 'Long date'
+      format-f: 'Short date and time'
+      format-F: 'Long date and time'
+      format-R: 'Relative'

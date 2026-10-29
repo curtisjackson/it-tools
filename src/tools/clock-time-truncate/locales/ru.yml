@@ -1,0 +1,11 @@
+tools:
+  clock-time-truncate:
+    title: 'Округление времени'
+    description: 'Отбрасывает секунды или минуты и секунды у времени.'
+    texts:
+      label-to: 'Оставить'
+      to-minutes: 'Часы и минуты'
+      to-hours: 'Только часы'
+      label-zeros: 'Показывать отброшенное нулями'
+      label-pad: 'Двузначные части'
+      placeholder-input: 'По одному времени ЧЧ:ММ:СС на строку...'

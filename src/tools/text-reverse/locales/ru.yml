@@ -1,0 +1,9 @@
+tools:
+  text-reverse:
+    title: 'Переворот текста'
+    description: 'Переворачивает текст посимвольно — целиком или по строкам.'
+    texts:
+      label-multi-line: 'По строкам'
+      label-skip-empty-lines: 'Пропускать пустые строки'
+      label-trim: 'Обрезать пробелы'
+      placeholder-input: 'Текст для переворота...'

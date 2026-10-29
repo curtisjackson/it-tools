@@ -1,0 +1,12 @@
+tools:
+  date-weekday-calculator:
+    title: 'Годы по дню недели'
+    description: 'Находит годы, в которые дата приходится на заданный день недели.'
+    texts:
+      label-day: 'День'
+      label-month: 'Месяц'
+      label-weekday: 'День недели'
+      label-from: 'С года'
+      label-to: 'По год'
+      found: 'Подходящих лет: {0}'
+      none: 'В этом диапазоне таких лет нет.'

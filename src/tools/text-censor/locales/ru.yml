@@ -1,0 +1,15 @@
+tools:
+  text-censor:
+    title: 'Цензура текста'
+    description: 'Заменяет выбранные слова в тексте символами или другим словом.'
+    texts:
+      label-words: 'Слова для цензуры (по одному на строку)'
+      placeholder-words: "слово\nцелая фраза"
+      label-replace-by: 'Заменять на'
+      by-symbol: 'Символ'
+      by-word: 'Слово'
+      label-symbol: 'Символ'
+      label-each-letter: 'За каждую букву'
+      label-word: 'Замена'
+      warning-symbol: 'Символ цензуры не должен содержать буквы и цифры.'
+      placeholder-input: 'Текст для цензуры...'

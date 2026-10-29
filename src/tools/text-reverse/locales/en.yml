@@ -1,0 +1,9 @@
+tools:
+  text-reverse:
+    title: 'Text reverser'
+    description: 'Reverse a text character by character, as a whole or line by line.'
+    texts:
+      label-multi-line: 'Line by line'
+      label-skip-empty-lines: 'Skip empty lines'
+      label-trim: 'Trim lines'
+      placeholder-input: 'Text to reverse...'

@@ -1,0 +1,20 @@
+tools:
+  text-truncate:
+    title: 'Обрезка текста'
+    description: 'Обрезает текст до заданной длины или вырезает подстроку по позиции.'
+    texts:
+      label-mode: 'Режим'
+      mode-truncate: 'Обрезать'
+      mode-substring: 'Подстрока'
+      label-side: 'Оставить'
+      side-right: 'Начало'
+      side-left: 'Конец'
+      label-max-length: 'Макс. длина'
+      label-add-indicator: 'Добавить индикатор'
+      label-indicator: 'Индикатор'
+      warning-indicator: 'Индикатор длиннее максимальной длины.'
+      label-start: 'С позиции'
+      label-length: 'Длина'
+      label-reverse: 'Перевернуть'
+      label-line-by-line: 'По строкам'
+      placeholder-input: 'Текст для обрезки...'

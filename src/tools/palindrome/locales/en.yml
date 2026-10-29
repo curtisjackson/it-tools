@@ -1,0 +1,12 @@
+tools:
+  palindrome:
+    title: 'Palindrome checker'
+    description: 'Check whether words or lines are palindromes, or make palindromes.'
+    texts:
+      label-mode: 'Mode'
+      mode-check: 'Check'
+      mode-create: 'Create'
+      label-letters-only: 'Ignore case, spaces and punctuation'
+      label-last-char: 'Repeat the last character'
+      label-multi-line: 'Line by line'
+      placeholder-input: 'Words or lines...'

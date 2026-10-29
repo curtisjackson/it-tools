@@ -1,0 +1,11 @@
+tools:
+  clock-time-truncate:
+    title: 'Clock time truncator'
+    description: 'Drop the seconds, or the minutes and seconds, of clock times.'
+    texts:
+      label-to: 'Keep'
+      to-minutes: 'Hours and minutes'
+      to-hours: 'Hours only'
+      label-zeros: 'Show dropped parts as zeros'
+      label-pad: 'Two-digit parts'
+      placeholder-input: 'One HH:MM:SS time per line...'

@@ -1,0 +1,9 @@
+tools:
+  text-repeat:
+    title: 'Повтор текста'
+    description: 'Повторяет текст заданное число раз, с разделителем или без.'
+    texts:
+      label-count: 'Повторов'
+      label-delimiter: 'Разделитель'
+      placeholder-delimiter: "например , или \\n"
+      placeholder-input: 'Текст для повтора...'

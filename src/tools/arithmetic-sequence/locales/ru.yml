@@ -1,0 +1,11 @@
+tools:
+  arithmetic-sequence:
+    title: 'Арифметическая прогрессия'
+    description: 'Генерирует члены арифметической прогрессии и их сумму.'
+    texts:
+      label-first: 'Первый член'
+      label-difference: 'Разность'
+      label-count: 'Членов'
+      label-separator: 'Разделитель'
+      title-sequence: 'Последовательность'
+      label-sum: 'Сумма'

@@ -1,0 +1,14 @@
+tools:
+  number-to-words:
+    title: 'Число прописью'
+    description: 'Записывает числа и суммы словами на разных языках.'
+    texts:
+      label-language: 'Язык'
+      label-case: 'Регистр'
+      case-sentence: 'Как в предложении'
+      case-lower: 'строчные'
+      case-upper: 'ЗАГЛАВНЫЕ'
+      case-title: 'Каждое Слово'
+      label-currency: 'Денежная сумма'
+      label-kopecks-in-digits: 'Копейки цифрами'
+      placeholder-input: 'По одному числу на строку...'

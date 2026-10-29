@@ -1,0 +1,7 @@
+tools:
+  email-extractor:
+    title: 'Извлечение e-mail'
+    description: 'Находит в тексте все адреса электронной почты, по одному на строку.'
+    texts:
+      label-unique: 'Убирать повторы'
+      placeholder-input: 'Текст с адресами почты...'

@@ -1,0 +1,11 @@
+tools:
+  list-truncate:
+    title: 'Обрезка списка'
+    description: 'Оставляет только первые или последние N элементов списка.'
+    texts:
+      label-join-separator: 'Соединять через'
+      label-keep: 'Оставить'
+      keep-first: 'Первые'
+      keep-last: 'Последние'
+      label-length: 'Элементов'
+      placeholder-input: 'Элементы списка...'

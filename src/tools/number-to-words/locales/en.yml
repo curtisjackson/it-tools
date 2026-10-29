@@ -1,0 +1,14 @@
+tools:
+  number-to-words:
+    title: 'Number to words'
+    description: 'Spell out numbers and amounts in words, in many languages.'
+    texts:
+      label-language: 'Language'
+      label-case: 'Case'
+      case-sentence: 'Sentence'
+      case-lower: 'lower'
+      case-upper: 'UPPER'
+      case-title: 'Title'
+      label-currency: 'As an amount of money'
+      label-kopecks-in-digits: 'Kopecks in digits'
+      placeholder-input: 'One number per line...'
