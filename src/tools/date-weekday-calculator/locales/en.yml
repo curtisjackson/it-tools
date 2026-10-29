@@ -1,0 +1,12 @@
+tools:
+  date-weekday-calculator:
+    title: 'Date weekday finder'
+    description: 'Find the years in which a date falls on a given day of the week.'
+    texts:
+      label-day: 'Day'
+      label-month: 'Month'
+      label-weekday: 'Weekday'
+      label-from: 'From year'
+      label-to: 'To year'
+      found: 'Matching years: {0}'
+      none: 'No year in this range.'
