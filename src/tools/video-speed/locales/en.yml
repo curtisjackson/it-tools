@@ -1,0 +1,10 @@
+tools:
+  video-speed:
+    title: 'Video speed changer'
+    description: 'Speed up or slow down a video, with its sound.'
+    texts:
+      label-speed: 'Speed'
+      label-custom: 'Exact speed'
+      label-remove-audio: 'Remove audio'
+      hint: 'The sound keeps its pitch. Very fast or slow speeds sound unnatural.'
+      button: 'Change speed'
