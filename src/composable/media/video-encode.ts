@@ -5,10 +5,16 @@ export interface H264Options {
   /** x264 preset: `veryfast` keeps 1080p close to real time in the single-threaded core (`medium` is ~8× slower). */
   preset?: 'ultrafast' | 'superfast' | 'veryfast' | 'faster' | 'fast' | 'medium';
   audio?: 'aac' | 'none';
+  audioBitrate?: string;
 }
 
 /** Encoder arguments for an MP4 that plays in browsers: H.264 yuv420p, AAC, moov atom first. */
-export function h264Args({ crf = 23, preset = 'veryfast', audio = 'aac' }: H264Options = {}): string[] {
+export function h264Args({
+  crf = 23,
+  preset = 'veryfast',
+  audio = 'aac',
+  audioBitrate = '128k',
+}: H264Options = {}): string[] {
   return [
     '-c:v',
     'libx264',
@@ -18,7 +24,7 @@ export function h264Args({ crf = 23, preset = 'veryfast', audio = 'aac' }: H264O
     String(crf),
     '-pix_fmt',
     'yuv420p',
-    ...(audio === 'aac' ? ['-c:a', 'aac', '-b:a', '128k'] : ['-an']),
+    ...(audio === 'aac' ? ['-c:a', 'aac', '-b:a', audioBitrate] : ['-an']),
     '-movflags',
     '+faststart',
   ];

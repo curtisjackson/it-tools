@@ -1,0 +1,13 @@
+tools:
+  video-compress:
+    title: 'Video compressor'
+    description: 'Make a video file smaller by lowering its resolution and quality.'
+    texts:
+      label-size: 'Resolution'
+      size-original: 'Original'
+      label-quality: 'Quality (CRF {0})'
+      quality-high: 'Better'
+      quality-small: 'Smaller'
+      label-remove-audio: 'Remove audio'
+      hint: 'Lower resolution and a higher CRF give smaller files. Smaller videos are never upscaled.'
+      button: 'Compress video'

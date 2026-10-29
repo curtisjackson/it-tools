@@ -1,0 +1,13 @@
+tools:
+  video-resize:
+    title: 'Video resizer'
+    description: 'Change the resolution of a video, in your browser.'
+    texts:
+      label-mode: 'Size'
+      mode-preset: 'Preset'
+      mode-width: 'Width'
+      mode-custom: 'Exact size'
+      label-height: 'Height'
+      label-width: 'Width'
+      hint-custom: 'An exact size can stretch the picture if its proportions differ.'
+      button: 'Resize video'

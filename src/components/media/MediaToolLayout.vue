@@ -13,8 +13,9 @@ const props = withDefaults(
     task: (context: FfmpegTaskContext, file: File, metadata: MediaMetadata | undefined) => Promise<File>;
     /** Extra condition for the button, e.g. a valid range. */
     ready?: boolean;
+    warnIfLarger?: boolean;
   }>(),
-  { accept: undefined, ready: true },
+  { accept: undefined, ready: true, warnIfLarger: false },
 );
 const emit = defineEmits<{
   (event: 'loaded', metadata: MediaMetadata): void;
@@ -82,6 +83,7 @@ defineExpose({ seek: (time: number) => input.value?.seek(time) });
       :error="error"
       :result="result"
       :source-size="file?.size"
+      :warn-if-larger="warnIfLarger"
       @cancel="cancel"
     />
   </div>
