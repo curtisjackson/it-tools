@@ -1,0 +1,15 @@
+tools:
+  video-crop:
+    title: 'Video cropper'
+    description: 'Crop a video to an area of the frame, e.g. to make it square or vertical.'
+    texts:
+      label-ratio: 'Proportions'
+      ratio-free: 'Free'
+      title-area: 'Area to keep'
+      no-frame: 'This browser cannot show a frame of this video: set the area with the numbers.'
+      label-x: 'X'
+      label-y: 'Y'
+      label-width: 'Width'
+      label-height: 'Height'
+      result-size: 'Result: {0}'
+      button: 'Crop video'

@@ -1,0 +1,8 @@
+tools:
+  video-merge:
+    title: 'Video merger'
+    description: 'Join several videos into one, in the order you choose.'
+    texts:
+      label-fps: 'Frame rate'
+      hint: 'Clips of other sizes are fitted into the size of the first one, with black bars; clips without sound get silence.'
+      button: 'Merge videos'

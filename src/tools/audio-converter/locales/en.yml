@@ -1,0 +1,6 @@
+tools:
+  audio-converter:
+    title: 'Audio converter'
+    description: 'Convert audio files between MP3, M4A, OGG, Opus, WAV and FLAC.'
+    texts:
+      button: 'Convert audio'

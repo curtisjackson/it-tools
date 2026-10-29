@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
 import { type TrimMode, buildTrimArgs, getTrimOutput } from './video-trim.service';
-import { useFfmpeg } from '@/composable/media/useFfmpeg';
-import { useQueryParamOrStorage } from '@/composable/queryParams';
+import MediaToolLayout from '@/components/media/MediaToolLayout.vue';
+import type { FfmpegTaskContext } from '@/composable/media/ffmpeg-runner';
+import { fileExtension } from '@/composable/media/video-encode';
 import type { MediaMetadata } from '@/composable/media/probe-media';
-import MediaFileInput from '@/components/media/MediaFileInput.vue';
+import { useQueryParamOrStorage } from '@/composable/queryParams';
 
 const { t } = useI18n();
 
@@ -14,19 +15,10 @@ const modeOptions = computed(() => [
   { label: t('tools.video-trim.texts.mode-precise'), value: 'precise' },
 ]);
 
-const file = ref<File>();
 const duration = ref(0);
 const start = ref(0);
 const end = ref(0);
-const result = ref<File>();
-const input = ref<InstanceType<typeof MediaFileInput>>();
-
-const { running, progress, logs, error, run, cancel } = useFfmpeg();
-
-watch(file, () => {
-  duration.value = 0;
-  result.value = undefined;
-});
+const layout = ref<InstanceType<typeof MediaToolLayout>>();
 
 function onLoaded({ duration: loadedDuration }: MediaMetadata) {
   duration.value = loadedDuration;
@@ -34,26 +26,28 @@ function onLoaded({ duration: loadedDuration }: MediaMetadata) {
   end.value = loadedDuration;
 }
 
-async function trim() {
-  const source = file.value;
-  if (!source) {
-    return;
-  }
+async function trim({ writeInput, tempFile, exec, readOutput }: FfmpegTaskContext, source: File) {
   const output = getTrimOutput(source.name, mode.value);
-  result.value = await run(async ({ writeInput, tempFile, exec, readOutput }) => {
-    const inputName = await writeInput(source, source.name.split('.').pop() || 'mp4');
-    const outputName = tempFile(output.extension);
-    await exec(
-      buildTrimArgs({ input: inputName, output: outputName, start: start.value, end: end.value, mode: mode.value }),
-    );
-    return readOutput(outputName, output.fileName, mode.value === 'fast' && source.type ? source.type : 'video/mp4');
-  });
+  const inputName = await writeInput(source, fileExtension(source.name, 'mp4'));
+  const outputName = tempFile(output.extension);
+  await exec(
+    buildTrimArgs({ input: inputName, output: outputName, start: start.value, end: end.value, mode: mode.value }),
+  );
+  return readOutput(outputName, output.fileName, mode.value === 'fast' && source.type ? source.type : 'video/mp4');
 }
 </script>
 
 <template>
-  <div>
-    <div mx-auto mb-4 max-w-600px>
+  <media-tool-layout
+    ref="layout"
+    kind="video"
+    :task="trim"
+    :ready="duration > 0 && end > start"
+    :button-text="t('tools.video-trim.texts.button-trim')"
+    @loaded="onLoaded"
+    @update:file="duration = 0"
+  >
+    <template #default="{ running }">
       <c-buttons-select
         v-model:value="mode"
         :options="modeOptions"
@@ -67,34 +61,17 @@ async function trim() {
           mode === 'fast' ? t('tools.video-trim.texts.mode-fast-hint') : t('tools.video-trim.texts.mode-precise-hint')
         }}
       </n-text>
-    </div>
+    </template>
 
-    <media-file-input ref="input" v-model:file="file" kind="video" :disabled="running" @loaded="onLoaded" />
-
-    <div v-if="file && duration > 0" mx-auto mt-3 max-w-600px>
+    <template #below-input="{ running }">
       <media-trim-range
+        v-if="duration > 0"
         v-model:start="start"
         v-model:end="end"
         :duration="duration"
         :disabled="running"
-        @seek="(time: number) => input?.seek(time)"
+        @seek="(time: number) => layout?.seek(time)"
       />
-    </div>
-
-    <div mt-3 flex justify-center>
-      <c-button :disabled="!file || duration <= 0 || end <= start || running" @click="trim">
-        {{ t('tools.video-trim.texts.button-trim') }}
-      </c-button>
-    </div>
-
-    <media-result
-      :running="running"
-      :progress="progress"
-      :logs="logs"
-      :error="error"
-      :result="result"
-      :source-size="file?.size"
-      @cancel="cancel"
-    />
-  </div>
+    </template>
+  </media-tool-layout>
 </template>

@@ -1,0 +1,10 @@
+tools:
+  video-rotate-flip:
+    title: 'Video rotator'
+    description: 'Rotate a video by 90°, 180° or 270°, or mirror it.'
+    texts:
+      label-rotation: 'Rotate'
+      rotation-none: 'No'
+      label-flip-horizontal: 'Mirror left–right'
+      label-flip-vertical: 'Mirror top–bottom'
+      button: 'Rotate video'

@@ -1,0 +1,12 @@
+tools:
+  images-to-gif:
+    title: 'Картинки в GIF'
+    description: 'Собирает анимированный GIF из нескольких картинок в выбранном порядке.'
+    texts:
+      label-delay: 'Каждая картинка (мс)'
+      label-loop: 'Повторять бесконечно'
+      label-width: 'Ширина'
+      width-first: 'Как у первой'
+      label-background: 'Фон'
+      hint: 'Картинки других пропорций выравниваются по центру на фоне.'
+      button: 'Сделать GIF'

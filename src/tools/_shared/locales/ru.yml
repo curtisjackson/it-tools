@@ -45,5 +45,14 @@ shared:
     cancel: Отмена
     result: Результат
     size-change: '{0} к исходному'
+    result-larger: 'Результат не меньше исходного: видео, вероятно, уже хорошо сжато. Попробуйте меньшее разрешение или больший CRF.'
     download: Скачать
     logs: Логи
+  audio:
+    format: Формат
+    bitrate: Битрейт (кбит/с)
+    sample-rate: Частота
+    channels: Каналы
+    keep: Как есть
+    mono: Моно
+    stereo: Стерео

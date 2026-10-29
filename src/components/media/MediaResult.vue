@@ -11,8 +11,10 @@ const props = withDefaults(
     error?: string;
     result?: File;
     sourceSize?: number;
+    /** Warn when the result is larger than the source, for tools meant to shrink files. */
+    warnIfLarger?: boolean;
   }>(),
-  { error: undefined, result: undefined, sourceSize: undefined },
+  { error: undefined, result: undefined, sourceSize: undefined, warnIfLarger: false },
 );
 defineEmits<{ (event: 'cancel'): void }>();
 
@@ -53,6 +55,9 @@ const info = computed(() => {
         <div text-sm op-70 data-test-id="result-info">{{ info }}</div>
         <c-button @click="downloadFile(result)">{{ t('shared.media.download') }}</c-button>
       </div>
+      <c-alert v-if="warnIfLarger && sourceSize && result.size >= sourceSize" type="warning" mt-2>
+        {{ t('shared.media.result-larger') }}
+      </c-alert>
     </c-card>
 
     <c-collapse v-if="logs.length > 0" :title="t('shared.media.logs')" mx-auto mt-3 max-w-600px>

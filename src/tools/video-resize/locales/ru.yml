@@ -1,0 +1,13 @@
+tools:
+  video-resize:
+    title: 'Изменение размера видео'
+    description: 'Меняет разрешение видео прямо в браузере.'
+    texts:
+      label-mode: 'Размер'
+      mode-preset: 'Пресет'
+      mode-width: 'По ширине'
+      mode-custom: 'Точный размер'
+      label-height: 'Высота'
+      label-width: 'Ширина'
+      hint-custom: 'При другом соотношении сторон точный размер растянет картинку.'
+      button: 'Изменить размер'

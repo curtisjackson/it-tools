@@ -1,0 +1,8 @@
+tools:
+  video-loop:
+    title: 'Video looper'
+    description: 'Repeat a video several times in a row.'
+    texts:
+      label-times: 'Plays'
+      hint: 'The video is copied without re-encoding, so this is fast and lossless.'
+      button: 'Loop video'

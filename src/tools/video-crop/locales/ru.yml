@@ -1,0 +1,15 @@
+tools:
+  video-crop:
+    title: 'Кадрирование видео'
+    description: 'Обрезает видео до части кадра, например в квадрат или вертикально.'
+    texts:
+      label-ratio: 'Пропорции'
+      ratio-free: 'Свободно'
+      title-area: 'Оставить область'
+      no-frame: 'Браузер не может показать кадр этого видео: задайте область числами.'
+      label-x: 'X'
+      label-y: 'Y'
+      label-width: 'Ширина'
+      label-height: 'Высота'
+      result-size: 'Результат: {0}'
+      button: 'Кадрировать'

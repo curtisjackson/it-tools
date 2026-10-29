@@ -1,0 +1,13 @@
+tools:
+  video-compress:
+    title: 'Сжатие видео'
+    description: 'Уменьшает размер видеофайла за счёт разрешения и качества.'
+    texts:
+      label-size: 'Разрешение'
+      size-original: 'Как есть'
+      label-quality: 'Качество (CRF {0})'
+      quality-high: 'Лучше'
+      quality-small: 'Меньше'
+      label-remove-audio: 'Убрать звук'
+      hint: 'Чем ниже разрешение и выше CRF, тем меньше файл. Видео меньшего размера не увеличивается.'
+      button: 'Сжать'

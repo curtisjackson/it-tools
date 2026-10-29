@@ -1,0 +1,6 @@
+tools:
+  audio-merge:
+    title: 'Audio merger'
+    description: 'Join several audio files into one, in the order you choose.'
+    texts:
+      button: 'Merge audio'

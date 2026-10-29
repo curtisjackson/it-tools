@@ -47,5 +47,14 @@ shared:
     cancel: Cancel
     result: Result
     size-change: '{0} vs. original'
+    result-larger: 'The result is not smaller than the original: the video is probably already well compressed. Try a lower resolution or a higher CRF.'
     download: Download
     logs: Logs
+  audio:
+    format: Format
+    bitrate: Bitrate (kbit/s)
+    sample-rate: Sample rate
+    channels: Channels
+    keep: Keep
+    mono: Mono
+    stereo: Stereo

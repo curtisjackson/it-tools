@@ -1,0 +1,9 @@
+tools:
+  audio-speed:
+    title: 'Audio speed changer'
+    description: 'Speed up or slow down audio without changing its pitch.'
+    texts:
+      label-speed: 'Speed'
+      label-custom: 'Exact speed'
+      hint: 'The pitch stays the same, like the speed control of a podcast player.'
+      button: 'Change speed'
