@@ -1,0 +1,11 @@
+tools:
+  arithmetic-sequence:
+    title: 'Arithmetic sequence'
+    description: 'Generate the terms of an arithmetic progression and their sum.'
+    texts:
+      label-first: 'First term'
+      label-difference: 'Difference'
+      label-count: 'Terms'
+      label-separator: 'Separator'
+      title-sequence: 'Sequence'
+      label-sum: 'Sum'

@@ -1199,6 +1199,9 @@ importers:
       to-single-quotes:
         specifier: ^4.0.0
         version: 4.0.0
+      to-words:
+        specifier: ^5.7.0
+        version: 5.7.0
       turndown:
         specifier: ^7.2.4
         version: 7.2.4
@@ -10898,6 +10901,11 @@ packages:
   to-through@3.0.0:
     resolution: {integrity: sha512-y8MN937s/HVhEoBU1SxfHC+wxCHkV1a9gW8eAdTadYh/bGyesZIVcbjI+mSpFbSVwQici/XjBjuUyri1dnXwBw==}
     engines: {node: '>=10.13.0'}
+
+  to-words@5.7.0:
+    resolution: {integrity: sha512-D6Scrd19yCs/GZC70U/5ClQwcn9heojeFyvghQIXgqHK8YVGrbByjEshvLm9aHqzsCRxBAW0VTFm4tR+UQl9EQ==}
+    engines: {node: '>=20.0.0'}
+    hasBin: true
 
   token-types@4.2.1:
     resolution: {integrity: sha512-6udB24Q737UD/SDsKAHI9FCRP7Bqc9D/MQUV02ORQg5iskjtLJlZJNdN4kKtcdtwCeWIwIHDGaUsTsCCAa8sFQ==}
@@ -22155,6 +22163,8 @@ snapshots:
     transitivePeerDependencies:
       - bare-abort-controller
       - react-native-b4a
+
+  to-words@5.7.0: {}
 
   token-types@4.2.1:
     dependencies:

@@ -374,6 +374,7 @@
     "title-case": "^4.3.2",
     "to-double-quotes": "^4.0.0",
     "to-single-quotes": "^4.0.0",
+    "to-words": "^5.7.0",
     "turndown": "^7.2.4",
     "ua-parser-js": "^2.0.10",
     "ulid": "^3.0.2",
