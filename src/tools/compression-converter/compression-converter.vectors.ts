@@ -41,3 +41,30 @@ export const LZMA_VECTORS: { name: string; hex: string; text: string }[] = [
 
 // CyberChef "LZMA decompress: binary": bytes 00 to 10
 export const LZMA_BINARY = '5d00008000ffffffffffffffff00000052500a84f99bb28021a969d627e03e8a922effffbd160000';
+
+export const BZIP2_VECTORS: { name: string; hex: string; text: string }[] = [
+  // CyberChef "Bzip2 decompress"
+  {
+    name: 'cyberchef',
+    hex: '425a6839314159265359b218ed630000031380400104002a438c00200021a9ea601a10003202185d5ed68ca6442f1e177245385090b218ed63',
+    text: CAT,
+  },
+  // bzip2 -9 (1.0.8)
+  {
+    name: 'bzip2 -9',
+    hex: '425a6839314159265359b218ed630000031380400104002a438c00200021a68261a840d0342821a65675f0db844263f177245385090b218ed630',
+    text: CAT,
+  },
+  // Two streams in a row, as pbzip2 writes or `cat a.bz2 b.bz2` makes. CyberChef stops after the first one.
+  {
+    name: 'two streams',
+    hex: '425a6839314159265359b218ed630000031380400104002a438c00200021a68261a840d0342821a65675f0db844263f177245385090b218ed630425a6839314159265359342f46cf00000015804001200006c184002000221a32681003004a2c3dee6bc5dc914e14240d0bd1b3c0',
+    text: `${CAT} And the dog.`,
+  },
+  // printf '' | bzip2
+  { name: 'empty', hex: '425a683917724538509000000000', text: '' },
+];
+
+// head -c 20000000 /dev/zero | bzip2 -9: more than the 10 MB that CyberChef can output
+export const BZIP2_ZEROS =
+  '425a6839314159265359bfcaafc400992fc200c00000080008200030cc0529a6aa91146c0288a3c5dc914e14242ff2abf100';

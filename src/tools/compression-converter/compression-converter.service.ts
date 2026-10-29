@@ -1,20 +1,27 @@
 import LZString from 'lz-string';
+import { bzip2Compress, bzip2Decompress } from './bzip2';
 import { lz4Compress, lz4Decompress } from './lz4';
 import { type LzmaMode, compress as lzmaCompressRaw, decompress as lzmaDecompressRaw } from '@/libs/lzma/lzma.mjs';
 
-export type ByteAlgorithm = 'lz4' | 'lzma';
+export type ByteAlgorithm = 'lz4' | 'lzma' | 'bzip2';
 export type CompressionAlgorithm = 'lz-string' | ByteAlgorithm;
-export const compressionAlgorithms: CompressionAlgorithm[] = ['lz-string', 'lz4', 'lzma'];
+export const compressionAlgorithms: CompressionAlgorithm[] = ['lz-string', 'lz4', 'lzma', 'bzip2'];
 
 export type LzStringFormat = 'default' | 'utf16' | 'base64' | 'uri';
 export const lzStringFormats: LzStringFormat[] = ['default', 'utf16', 'base64', 'uri'];
 
 export interface CompressionOptions {
   lzmaLevel: LzmaMode;
+  // Bzip2 block size in units of 100 kB, 1 to 9.
+  bzip2BlockSize: number;
+  // How hard bzip2 tries on repetitive data before it switches to a slower sort, 0 to 250 (0 means 30).
+  bzip2WorkFactor: number;
 }
 
 export const defaultCompressionOptions: CompressionOptions = {
   lzmaLevel: 6,
+  bzip2BlockSize: 9,
+  bzip2WorkFactor: 30,
 };
 
 export type ProgressCallback = (fraction: number) => void;
@@ -22,6 +29,7 @@ export type ProgressCallback = (fraction: number) => void;
 export const compressedExtensions: Record<ByteAlgorithm, string> = {
   lz4: 'lz4',
   lzma: 'lzma',
+  bzip2: 'bz2',
 };
 
 const LZ_STRING_ALPHABETS: Partial<Record<LzStringFormat, RegExp>> = {
@@ -124,6 +132,9 @@ export function detectCompression(bytes: Uint8Array): ByteAlgorithm | 'xz' | 'gz
   if (isXz(bytes)) {
     return 'xz';
   }
+  if (bytes[0] === 0x42 && bytes[1] === 0x5a && bytes[2] === 0x68 && bytes[3] >= 0x31 && bytes[3] <= 0x39) {
+    return 'bzip2';
+  }
   if (startsWith(bytes, [0x1f, 0x8b])) {
     return 'gzip';
   }
@@ -136,14 +147,17 @@ export function detectCompression(bytes: Uint8Array): ByteAlgorithm | 'xz' | 'gz
 export async function compressBytes(
   algorithm: ByteAlgorithm,
   bytes: Uint8Array,
-  options: CompressionOptions = defaultCompressionOptions,
+  options: Partial<CompressionOptions> = {},
   onProgress?: ProgressCallback,
 ): Promise<Uint8Array> {
+  const { lzmaLevel, bzip2BlockSize, bzip2WorkFactor } = { ...defaultCompressionOptions, ...options };
   switch (algorithm) {
     case 'lz4':
       return lz4Compress(bytes);
     case 'lzma':
-      return lzmaCompress(bytes, options.lzmaLevel, onProgress);
+      return lzmaCompress(bytes, lzmaLevel, onProgress);
+    case 'bzip2':
+      return bzip2Compress(bytes, bzip2BlockSize, bzip2WorkFactor);
   }
 }
 
@@ -157,5 +171,7 @@ export async function decompressBytes(
       return lz4Decompress(bytes);
     case 'lzma':
       return lzmaDecompress(bytes, onProgress);
+    case 'bzip2':
+      return bzip2Decompress(bytes);
   }
 }

@@ -9,6 +9,8 @@ import {
 } from './compression-converter.service';
 import { lz4Compress, lz4Decompress, xxh32 } from './lz4';
 import {
+  BZIP2_VECTORS,
+  BZIP2_ZEROS,
   CAT,
   LZ4_VECTORS,
   LZMA_BINARY,
@@ -123,6 +125,38 @@ describe('lzma', () => {
   });
 });
 
+describe('bzip2', () => {
+  it('compresses like bzip2 -9', async () => {
+    expect(bytesToHex(await compressBytes('bzip2', encode(CAT)))).toBe(BZIP2_VECTORS[1].hex);
+  });
+
+  it.each(BZIP2_VECTORS)('decompresses the $name vector', async ({ hex, text }) => {
+    expect(decode(await decompressBytes('bzip2', hexToBytes(hex)))).toBe(text);
+  });
+
+  it('outputs more than 10 MB', async () => {
+    const output = await decompressBytes('bzip2', hexToBytes(BZIP2_ZEROS));
+    expect(output.length).toBe(20_000_000);
+    expect(output.every((byte) => byte === 0)).toBe(true);
+  });
+
+  it('round-trips with every block size', async () => {
+    const bytes = sampleBytes(300_000);
+    for (const bzip2BlockSize of [1, 5, 9]) {
+      const compressed = await compressBytes('bzip2', bytes, { bzip2BlockSize, bzip2WorkFactor: 0 });
+      expect(compressed[3]).toBe(0x30 + bzip2BlockSize);
+      expect(sameBytes(await decompressBytes('bzip2', compressed), bytes)).toBe(true);
+    }
+  });
+
+  it('rejects broken data', async () => {
+    const corrupted = hexToBytes(BZIP2_VECTORS[1].hex);
+    corrupted[30] ^= 1;
+    await expect(decompressBytes('bzip2', corrupted)).rejects.toThrow('Bzip2');
+    await expect(decompressBytes('bzip2', encode(CAT))).rejects.toThrow('Not bzip data');
+  });
+});
+
 describe('detectCompression', () => {
   it('recognises the formats by their first bytes', () => {
     expect(detectCompression(hexToBytes(LZ4_VECTORS[0].hex))).toBe('lz4');
@@ -130,6 +164,7 @@ describe('detectCompression', () => {
     expect(detectCompression(hexToBytes(LZMA_BINARY))).toBe('lzma');
     expect(detectCompression(hexToBytes('fd377a585a00'))).toBe('xz');
     expect(detectCompression(hexToBytes('1f8b0800'))).toBe('gzip');
+    expect(detectCompression(hexToBytes(BZIP2_VECTORS[0].hex))).toBe('bzip2');
     expect(detectCompression(encode(CAT))).toBeUndefined();
   });
 });

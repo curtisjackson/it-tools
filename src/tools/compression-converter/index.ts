@@ -13,6 +13,8 @@ export const tool = defineTool({
     'lzstring',
     'lz4',
     'lzma',
+    'bzip2',
+    'bz2',
     '7z',
     'сжатие',
     'распаковка',
@@ -22,5 +24,5 @@ export const tool = defineTool({
   icon: defineAsyncComponent(() => import('@vicons/tabler/es/ArrowsMinimize')),
   createdAt: new Date('2026-10-29'),
   category: 'Converters',
-  npmPackages: ['lz-string', 'lz4js'],
+  npmPackages: ['lz-string', 'lz4js', 'libbzip2-wasm', 'seek-bzip'],
 });

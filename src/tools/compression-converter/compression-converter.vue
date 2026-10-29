@@ -31,6 +31,8 @@ const algorithm = ref<CompressionAlgorithm>('lz4');
 const mode = ref<Mode>('compress');
 const lzStringFormat = ref<LzStringFormat>('base64');
 const lzmaLevel = ref<LzmaMode>(6);
+const bzip2BlockSize = ref(9);
+const bzip2WorkFactor = ref(30);
 
 const text = ref('');
 const bytesText = ref('');
@@ -52,6 +54,9 @@ const lzStringFormatOptions = computed(() =>
   lzStringFormats.map((value) => ({ value, label: t(`tools.compression-converter.texts.format-${value}`) })),
 );
 const levelOptions = Array.from({ length: 9 }, (_, i) => ({ value: i + 1, label: String(i + 1) }));
+const blockSizeOptions = computed(() =>
+  levelOptions.map(({ value }) => ({ value, label: t('tools.compression-converter.texts.block-size', [value]) })),
+);
 const outputFormatOptions = computed(() =>
   (['base64', 'hex', 'utf8', 'latin1'] as const).map((value) => ({
     value,
@@ -104,7 +109,16 @@ async function run() {
     const onProgress = (fraction: number) => current() && (progress.value = fraction);
     const result =
       mode.value === 'compress'
-        ? await compressBytes(algorithm.value, input, { lzmaLevel: lzmaLevel.value }, onProgress)
+        ? await compressBytes(
+            algorithm.value,
+            input,
+            {
+              lzmaLevel: lzmaLevel.value,
+              bzip2BlockSize: bzip2BlockSize.value,
+              bzip2WorkFactor: bzip2WorkFactor.value,
+            },
+            onProgress,
+          )
         : await decompressBytes(algorithm.value, input, onProgress);
     if (current()) {
       outcome.value = { bytes: result };
@@ -120,7 +134,10 @@ async function run() {
   }
 }
 
-watchDebounced([algorithm, mode, lzStringFormat, lzmaLevel, text, bytes], run, { debounce: 200, immediate: true });
+watchDebounced([algorithm, mode, lzStringFormat, lzmaLevel, bzip2BlockSize, bzip2WorkFactor, text, bytes], run, {
+  debounce: 200,
+  immediate: true,
+});
 
 const detected = computed(() => {
   if (mode.value !== 'decompress' || isLzString.value || !bytes.value) {
@@ -200,6 +217,26 @@ function download() {
         label-width="150px"
         mb-2
       />
+      <template v-if="algorithm === 'bzip2' && mode === 'compress'">
+        <c-select
+          v-model:value="bzip2BlockSize"
+          :options="blockSizeOptions"
+          :label="t('tools.compression-converter.texts.label-block-size')"
+          label-position="left"
+          label-width="150px"
+          mb-2
+        />
+        <n-form-item
+          :label="t('tools.compression-converter.texts.label-work-factor')"
+          label-placement="left"
+          label-align="left"
+          label-width="150"
+          :show-feedback="false"
+          mb-2
+        >
+          <n-input-number v-model:value="bzip2WorkFactor" :min="0" :max="250" :precision="0" w-full />
+        </n-form-item>
+      </template>
       <n-text depth="3" block text-sm>{{ t(`tools.compression-converter.texts.hint-${algorithm}`) }}</n-text>
     </c-card>
 
@@ -227,7 +264,11 @@ function download() {
     <c-alert v-if="detected" type="warning" mb-2 data-test-id="detected">
       <div flex flex-wrap items-center justify-between gap-2>
         <span>{{ t(`tools.compression-converter.texts.detected-${detected}`) }}</span>
-        <c-button v-if="detected === 'lz4' || detected === 'lzma'" size="small" @click="algorithm = detected">
+        <c-button
+          v-if="detected === 'lz4' || detected === 'lzma' || detected === 'bzip2'"
+          size="small"
+          @click="algorithm = detected"
+        >
           {{
             t('tools.compression-converter.texts.switch', [
               t(`tools.compression-converter.texts.algorithm-${detected}`),
