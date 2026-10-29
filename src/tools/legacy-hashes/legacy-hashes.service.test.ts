@@ -32,6 +32,36 @@ describe('legacy-hashes', () => {
     expect(hex(algorithm, HELLO, options)).toBe(expected);
   });
 
+  it.each([
+    ['gost94', '', '981e5f3ca30c841487830f84fb433e13ac1101569b9c13584ac483234cd656c0'],
+    ['gost94', 'This is message, length=32 bytes', '2cefc2f7b7bdc514e18ea57fa74ff357e7fa17d652c75f69cb1be7893ede48eb'],
+    ['streebog256', '', '3f539a213e97c802cc229d474c6aa32a825a360b2a933a949fd925208d9ce1bb'],
+    [
+      'streebog256',
+      'The quick brown fox jumps over the lazy dog',
+      '3e7dea7f2384b6c5a3d0e24aaa29c05e89ddd762145030ec22c71a6db8b2c1f4',
+    ],
+    [
+      'streebog512',
+      '',
+      '8e945da209aa869f0455928529bcae4679e9873ab707b55315f56ceb98bef0a7362f715528356ee83cda5f2aac4c6ad2ba3a715c1bcd81cb8e9f90bf4c1c1a8a',
+    ],
+    [
+      'streebog512',
+      'The quick brown fox jumps over the lazy dog',
+      'd2b793a0bb6cb5904828b5b6dcfb443bb8f33efc06ad09368878ae4cdc8245b97e60802469bed1e7c21a64ff0b179a6a1e0bb74d92965450a0adab69162c00fe',
+    ],
+  ] as [LegacyAlgorithm, string, string][])('%s %j', (algorithm, input, expected) => {
+    // The GOST R 34.11-94 vectors use the CryptoPro S-box (D-A), the default.
+    expect(hex(algorithm, input)).toBe(expected);
+  });
+
+  it('computes GOST R 34.11-94 with the test S-box of RFC 5831', () => {
+    expect(hex('gost94', 'This is message, length=32 bytes', { sBox: 'D-TEST' })).toBe(
+      'b1c466d37519b82e8319819ff32595e047a28cb6f83eff1c6916a815a637fffa',
+    );
+  });
+
   it('computes MurmurHash3 like CyberChef', () => {
     // Test vectors of CyberChef: tests/operations/tests/MurmurHash3.mjs.
     expect(murmurHash3(text(''))).toBe(0);

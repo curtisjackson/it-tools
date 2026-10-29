@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
 import { type LegacyAlgorithm, legacyAlgorithms, legacyHash } from './legacy-hashes.service';
+import { type GostSBox, gostSBoxes } from './gost';
 import { murmurHash3, toSigned } from './murmurhash3';
 import type { BytesInputFormat } from '@/components/BytesInput.vue';
 import { useQueryParamOrStorage } from '@/composable/queryParams';
@@ -32,6 +33,7 @@ const settings = useQueryParamOrStorage({
     shake256Size: 512,
     murmurSeed: 0,
     murmurSigned: false,
+    gostSBox: 'D-A' as GostSBox,
   },
 });
 
@@ -43,6 +45,9 @@ const labels: Record<LegacyAlgorithm, string> = {
   snefru: 'Snefru',
   shake128: 'SHAKE128',
   shake256: 'SHAKE256',
+  gost94: 'GOST R 34.11-94',
+  streebog256: 'Streebog-256',
+  streebog512: 'Streebog-512',
   murmur3: 'MurmurHash3',
 };
 
@@ -52,6 +57,7 @@ const encodingOptions = [
 ];
 const snefruSizeOptions = [128, 256].map((value) => ({ label: `${value}`, value }));
 const snefruRoundOptions = [2, 4, 8].map((value) => ({ label: `${value}`, value }));
+const sBoxOptions = gostSBoxes.map((value) => ({ label: value, value }));
 
 function options(algorithm: LegacyAlgorithm) {
   const s = settings.value;
@@ -70,6 +76,8 @@ function options(algorithm: LegacyAlgorithm) {
       return { size: s.shake128Size };
     case 'shake256':
       return { size: s.shake256Size };
+    case 'gost94':
+      return { sBox: s.gostSBox };
     default:
       return {};
   }
@@ -116,7 +124,7 @@ const results = computed(() =>
     <c-card mb-2>
       <div v-for="{ algorithm, value, error } in results" :key="algorithm" my-1 :data-test-id="`hash-${algorithm}`">
         <n-input-group>
-          <n-input-group-label style="flex: 0 0 130px">{{ labels[algorithm] }}</n-input-group-label>
+          <n-input-group-label style="flex: 0 0 150px">{{ labels[algorithm] }}</n-input-group-label>
           <input-copyable :value="error ?? value" readonly :status="error ? 'error' : undefined" />
         </n-input-group>
       </div>
@@ -172,6 +180,17 @@ const results = computed(() =>
                 <n-input-number-i18n v-model:value="settings.shake256Size" :min="8" :step="8" w-120px />
               </n-form-item>
               <n-text depth="3" text-sm>{{ t('tools.legacy-hashes.texts.hint-bits') }}</n-text>
+            </n-space>
+            <n-space align="center">
+              <span w-130px>GOST R 34.11-94</span>
+              <c-select
+                v-model:value="settings.gostSBox"
+                :options="sBoxOptions"
+                label="S-box"
+                label-position="left"
+                w-200px
+              />
+              <n-text depth="3" text-sm>{{ t('tools.legacy-hashes.texts.hint-sbox') }}</n-text>
             </n-space>
             <n-space align="center">
               <span w-130px>MurmurHash3</span>

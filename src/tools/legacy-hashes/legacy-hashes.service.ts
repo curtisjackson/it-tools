@@ -1,5 +1,5 @@
 // The rare hashes of CyberChef (Apache-2.0) v11.5.0 — src/core/operations/MD2.mjs, MD6.mjs, SHA0.mjs, HAS160.mjs,
-// Snefru.mjs, Shake.mjs, MurmurHash3.mjs — in one tool, over bytes rather than text. MD2, SHA-0, HAS-160 and Snefru
+// Snefru.mjs, Shake.mjs, GOSTHash.mjs, Streebog.mjs, MurmurHash3.mjs — in one tool, over bytes rather than text. MD2, SHA-0, HAS-160 and Snefru
 // come from crypto-api (MIT), as in CyberChef, vendored in src/libs because its imports have no extensions; SHAKE from
 // @noble/hashes (MIT) instead of js-sha3.
 import { shake128, shake256 } from '@noble/hashes/sha3.js';
@@ -7,10 +7,22 @@ import Has160 from '@/libs/crypto-api/hasher/has160.mjs';
 import Md2 from '@/libs/crypto-api/hasher/md2.mjs';
 import Sha0 from '@/libs/crypto-api/hasher/sha0.mjs';
 import Snefru from '@/libs/crypto-api/hasher/snefru.mjs';
+import { type GostSBox, gost94, streebog } from './gost';
 import { md6 } from './md6';
 import { murmurHash3 } from './murmurhash3';
 
-export type LegacyAlgorithm = 'md2' | 'md6' | 'sha0' | 'has160' | 'snefru' | 'shake128' | 'shake256' | 'murmur3';
+export type LegacyAlgorithm =
+  | 'md2'
+  | 'md6'
+  | 'sha0'
+  | 'has160'
+  | 'snefru'
+  | 'shake128'
+  | 'shake256'
+  | 'gost94'
+  | 'streebog256'
+  | 'streebog512'
+  | 'murmur3';
 
 export const legacyAlgorithms: LegacyAlgorithm[] = [
   'md2',
@@ -20,6 +32,9 @@ export const legacyAlgorithms: LegacyAlgorithm[] = [
   'snefru',
   'shake128',
   'shake256',
+  'gost94',
+  'streebog256',
+  'streebog512',
   'murmur3',
 ];
 
@@ -33,6 +48,8 @@ export interface LegacyHashOptions {
   key?: Uint8Array;
   /** MurmurHash3. */
   seed?: number;
+  /** GOST R 34.11-94. */
+  sBox?: GostSBox;
 }
 
 /** The defaults of CyberChef. */
@@ -44,6 +61,9 @@ export const defaultOptions: Record<LegacyAlgorithm, LegacyHashOptions> = {
   snefru: { size: 128, rounds: 8 },
   shake128: { size: 256 },
   shake256: { size: 512 },
+  gost94: { sBox: 'D-A' },
+  streebog256: {},
+  streebog512: {},
   murmur3: { seed: 0 },
 };
 
@@ -69,7 +89,7 @@ function checkRange(value: number, min: number, max: number, what: string) {
 }
 
 export function legacyHash(algorithm: LegacyAlgorithm, bytes: Uint8Array, options: LegacyHashOptions = {}): Uint8Array {
-  const { rounds, size, levels, key, seed } = { ...defaultOptions[algorithm], ...options };
+  const { rounds, size, levels, key, seed, sBox } = { ...defaultOptions[algorithm], ...options };
   switch (algorithm) {
     case 'md2':
       checkRange(rounds!, 0, 1000, 'The number of rounds');
@@ -95,6 +115,12 @@ export function legacyHash(algorithm: LegacyAlgorithm, bytes: Uint8Array, option
         throw new RangeError('The SHAKE size is a positive multiple of 8 bits');
       }
       return (algorithm === 'shake128' ? shake128 : shake256)(bytes, { dkLen: size! / 8 });
+    case 'gost94':
+      return gost94(bytes, sBox);
+    case 'streebog256':
+      return streebog(bytes, 256);
+    case 'streebog512':
+      return streebog(bytes, 512);
     case 'murmur3': {
       const hash = murmurHash3(bytes, seed);
       return new Uint8Array([hash >>> 24, (hash >>> 16) & 0xff, (hash >>> 8) & 0xff, hash & 0xff]);
