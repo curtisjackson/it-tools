@@ -16,7 +16,7 @@ Copyright (c) 2024 Ibrahima Gaye Coulibaly. Licensed under the MIT License.
   `email-extractor`, `hidden-characters-detector`
 - Lists: `list-chunk`, `list-rotate`, `list-duplicate`, `list-most-popular`, `list-shuffle`, `list-truncate`,
   `list-unwrap`
-- Numbers: `number-to-words`, `arithmetic-sequence`, `numbers-sum`
+- Numbers: `number-to-words`, `arithmetic-sequence`, `numbers-sum`, `formula-calculator`
 - Date and time: `leap-year-checker`, `discord-timestamp`, `clock-time-truncate`, `time-to-decimal`,
   `date-weekday-calculator`
 - CSV and tables: `csv-transpose`, `csv-separator-converter`, `tsv-to-json`, `csv-insert-columns`, `csv-swap-columns`,
@@ -24,8 +24,10 @@ Copyright (c) 2024 Ibrahima Gaye Coulibaly. Licensed under the MIT License.
 - Video, GIF and audio: `video-trim`, `video-resize`, `video-rotate-flip`, `video-compress`, `video-speed`, `video-loop`,
   `video-crop`, `video-merge`, `video-add-audio`, `video-to-gif`, `images-to-gif`, `gif-speed`, `audio-converter`,
   `video-extract-audio`, `audio-trim`, `audio-speed`, `audio-merge`
-- PDF: `pdf-rotate`, `images-to-pdf`, `pdf-to-images`, `pdf-extract-images`, `pdf-to-epub`, `image-split-to-pdf`
-- Images: `image-color-to-transparent`, `image-replace-color`, `image-opacity`, `image-compressor`, `png-compressor`
+- PDF: `pdf-rotate`, `images-to-pdf`, `pdf-to-images`, `pdf-extract-images`, `pdf-to-epub`, `image-split-to-pdf`,
+  `pdf-editor`, `pdf-form-builder`
+- Images: `image-color-to-transparent`, `image-replace-color`, `image-opacity`, `image-compressor`, `png-compressor`,
+  `image-editor`
 - Shared code: `src/utils/text-split.ts`, `text-items.ts`, `matrix.ts`, `csv.ts`, `page-ranges.ts`, `image-pixels.ts`,
   `src/composable/media/ffmpeg-runner.ts`, `audio-formats.ts`
 
