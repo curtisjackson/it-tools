@@ -1,0 +1,17 @@
+tools:
+  netbios-name-converter:
+    title: 'NetBIOS name converter'
+    description: 'Encode and decode NetBIOS names (RFC 1001 first-level encoding), with the suffix that tells the service type.'
+    texts:
+      label-offset: 'Offset'
+      hint: 'Each byte is split into two half-bytes added to the offset (65, the letter A, in the standard). A name has 15 characters padded with spaces, then the suffix byte.'
+      title-encode: 'Encode'
+      title-decode: 'Decode'
+      label-name: 'Name'
+      label-suffix: 'Suffix'
+      label-custom-suffix: 'Hex'
+      suffix-none: 'None (16 character name)'
+      suffix-custom: 'Other…'
+      invalid-suffix: 'The suffix is one byte in hexadecimal, such as 1F'
+      label-upper: 'Upper case'
+      label-encoded: 'Encoded name'
