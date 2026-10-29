@@ -33,12 +33,26 @@ Copyright (c) 2024 Ibrahima Gaye Coulibaly. Licensed under the MIT License.
 
 Crown Copyright. Licensed under the Apache License, Version 2.0.
 
-- Tools: `extract-dates`
+- Tools: `extract-dates`, `xml-minifier`, `php-serialize-converter`, `bson-converter`, `netbios-name-converter`,
+  `ip-grouper`, `http-response-cleaner`, `tls-ssh-fingerprint`
+- Hash tools: `hash-inspector`, `windows-password-hashes`, `legacy-hashes`, `keyed-mac`, `fuzzy-hash`
 - Compression tools: `compression-converter`, `archive-manager`
-- Shared code: `src/utils/byte-stream.ts` (`Stream`)
+- Test vectors: `audio-metadata` (the tool itself is built on `music-metadata`)
+- Shared code: `src/utils/byte-stream.ts` (`Stream`), `src/utils/ascon.ts` (Ascon-Mac)
+
+## JA4
+
+The JA4 and JA4S fingerprints of `tls-ssh-fingerprint` follow the specification of
+[FoxIO](https://github.com/FoxIO-LLC/ja4): JA4 is published under the BSD 3-Clause license, JA4S and the rest of JA4+
+under the FoxIO License 1.1.
 
 ## Other ported or vendored code
 
 | Code | Version | License | Where |
 | --- | --- | --- | --- |
+| [crypto-api](https://github.com/nf404/crypto-api) | 0.8.5 | MIT | `src/libs/crypto-api` (MD2, SHA-0, HAS-160, Snefru) |
+| GOST R 34.11 by Rudolf Nickolaev, from CyberChef | 1.76 | Apache-2.0 (Streebog part: BSD-style notice) | `src/libs/gost` |
+| [node-md6](https://github.com/Neo-Desktop/md6) | 0.1.0 | CC0-1.0 | `src/tools/legacy-hashes/md6.ts` |
+| [ssdeep.js](https://github.com/cloudtracer/ssdeep.js) | 0.0.3 | MIT | `src/tools/fuzzy-hash/ssdeep.ts` |
+| [ctph.js](https://github.com/huwenshuo/ctph.js) | 0.0.5 | MIT | `src/tools/fuzzy-hash/ctph.ts` |
 | [LZMA-JS](https://github.com/blu3r4y/LZMA-JS) (`@blu3r4y/lzma`) | 2.3.3 | MIT | `src/libs/lzma` |

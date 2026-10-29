@@ -1,0 +1,12 @@
+tools:
+  windows-password-hashes:
+    title: 'NT and LM hashes'
+    description: 'Compute the NT (NTLM) and LM hashes of a Windows password.'
+    texts:
+      label-password: 'Password'
+      label-nt: 'NT hash'
+      label-lm: 'LM hash'
+      label-combined: 'LM:NT'
+      lm-truncated: 'LM only uses the first 14 characters of the password, once upper-cased.'
+      lm-replaced: 'LM cannot represent characters outside Latin-1: they are replaced by "?".'
+      hint: 'The NT hash is MD4 over the UTF-16LE password. The LM hash splits the upper-cased password into two 7 character DES keys; it is weak and disabled by default since Windows Vista.'
