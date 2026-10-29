@@ -1,0 +1,23 @@
+tools:
+  hidden-characters-detector:
+    title: 'Невидимые символы'
+    description: 'Находит в тексте невидимые символы, символы нулевой ширины и смены направления текста и удаляет их.'
+    texts:
+      label-input: 'Текст для проверки'
+      placeholder-input: 'Вставьте текст...'
+      label-bidi: 'Направление текста (bidi)'
+      label-invisible: 'Невидимые и особые пробелы'
+      label-zero-width: 'Нулевой ширины'
+      none-found: 'Скрытых символов не найдено.'
+      found: 'Найдено скрытых символов: {0}.'
+      warning-bidi: ' Символы направления текста могут показывать текст или код не таким, какой он есть (Trojan Source).'
+      title-marked: 'Текст с отметками'
+      title-characters: 'Символы'
+      title-cleaned: 'Очищенный текст'
+      header-position: 'Позиция'
+      header-code: 'Код'
+      header-name: 'Название'
+      header-category: 'Тип'
+      category-bidi: 'Направление текста'
+      category-invisible: 'Невидимый'
+      category-control: 'Управляющий'
