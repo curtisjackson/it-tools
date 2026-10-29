@@ -1,0 +1,9 @@
+tools:
+  gif-speed:
+    title: 'GIF speed changer'
+    description: 'Speed up or slow down an animated GIF.'
+    texts:
+      label-speed: 'Speed'
+      label-custom: 'Exact speed'
+      hint: 'GIF frames last at least 20 ms, so very high speeds drop frames.'
+      button: 'Change speed'

@@ -1,0 +1,12 @@
+tools:
+  images-to-gif:
+    title: 'Images to GIF'
+    description: 'Make an animated GIF from several images, in the order you choose.'
+    texts:
+      label-delay: 'Each image (ms)'
+      label-loop: 'Loop forever'
+      label-width: 'Width'
+      width-first: 'As the first image'
+      label-background: 'Background'
+      hint: 'Images of other proportions are centred on the background colour.'
+      button: 'Make GIF'

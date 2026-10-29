@@ -1,0 +1,11 @@
+tools:
+  video-to-gif:
+    title: 'Video to GIF'
+    description: 'Turn a video clip into an animated GIF.'
+    texts:
+      label-width: 'Width'
+      width-original: 'Original'
+      label-fps: 'Frames per second'
+      label-loop: 'Loop forever'
+      hint: 'GIFs grow fast: keep them short, small and at a low frame rate.'
+      button: 'Make GIF'
