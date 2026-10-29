@@ -1,0 +1,7 @@
+tools:
+  email-extractor:
+    title: 'Email extractor'
+    description: 'Find all e-mail addresses in a text, one per line.'
+    texts:
+      label-unique: 'Remove duplicates'
+      placeholder-input: 'Text with e-mail addresses...'

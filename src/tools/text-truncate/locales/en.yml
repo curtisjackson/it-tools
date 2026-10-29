@@ -1,0 +1,20 @@
+tools:
+  text-truncate:
+    title: 'Text truncator'
+    description: 'Shorten a text to a maximum length, or extract a substring by position.'
+    texts:
+      label-mode: 'Mode'
+      mode-truncate: 'Truncate'
+      mode-substring: 'Substring'
+      label-side: 'Keep'
+      side-right: 'Start'
+      side-left: 'End'
+      label-max-length: 'Max length'
+      label-add-indicator: 'Add indicator'
+      label-indicator: 'Indicator'
+      warning-indicator: 'The indicator is longer than the max length.'
+      label-start: 'Start position'
+      label-length: 'Length'
+      label-reverse: 'Reverse'
+      label-line-by-line: 'Line by line'
+      placeholder-input: 'Text to truncate...'

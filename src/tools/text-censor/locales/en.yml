@@ -1,0 +1,15 @@
+tools:
+  text-censor:
+    title: 'Text censor'
+    description: 'Mask chosen words in a text with symbols or a replacement word.'
+    texts:
+      label-words: 'Words to censor (one per line)'
+      placeholder-words: "word\nanother phrase"
+      label-replace-by: 'Replace by'
+      by-symbol: 'Symbol'
+      by-word: 'Word'
+      label-symbol: 'Symbol'
+      label-each-letter: 'One per letter'
+      label-word: 'Replacement'
+      warning-symbol: 'The censor symbol must not contain letters or digits.'
+      placeholder-input: 'Text to censor...'
