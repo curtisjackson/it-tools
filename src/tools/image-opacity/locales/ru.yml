@@ -1,0 +1,20 @@
+tools:
+  image-opacity:
+    title: 'Прозрачность картинки'
+    description: 'Делает картинку полупрозрачной или плавно растворяет её к краю или от центра.'
+    texts:
+      label-mode: 'Прозрачность'
+      mode-solid: 'Равномерно'
+      mode-linear: 'Линейное затухание'
+      mode-radial: 'Радиальное затухание'
+      label-direction: 'Затухание'
+      direction-right: 'Вправо'
+      direction-left: 'Влево'
+      direction-down: 'Вниз'
+      direction-up: 'Вверх'
+      direction-edges: 'К краям'
+      direction-center: 'К центру'
+      label-opacity: 'Непрозрачность ({0}%)'
+      label-end-opacity: 'На конце ({0}%)'
+      label-flatten: 'Залить фон'
+      button: 'Применить'

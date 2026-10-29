@@ -1,0 +1,20 @@
+tools:
+  image-opacity:
+    title: 'Image opacity'
+    description: 'Make an image semi-transparent, or fade it out towards an edge or around the centre.'
+    texts:
+      label-mode: 'Opacity'
+      mode-solid: 'Uniform'
+      mode-linear: 'Linear fade'
+      mode-radial: 'Radial fade'
+      label-direction: 'Fade'
+      direction-right: 'To the right'
+      direction-left: 'To the left'
+      direction-down: 'Down'
+      direction-up: 'Up'
+      direction-edges: 'To the edges'
+      direction-center: 'To the centre'
+      label-opacity: 'Opacity ({0}%)'
+      label-end-opacity: 'Faded end ({0}%)'
+      label-flatten: 'Fill the background'
+      button: 'Apply'
